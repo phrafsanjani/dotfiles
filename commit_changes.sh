@@ -1,9 +1,11 @@
 #!/bin/zsh
 
-cd `dirname "$0$"`
+cd `dirname "$0"`
 
-cp $HOME/.zshrc .
+if [[ $(diff $HOME/.zshrc .zshrc) ]]; then
+    cp $HOME/.zshrc .
 
-git add --all
-git commit -m "sync zsh config"
-git push origin
+    git add .zshrc
+    git commit -m "Sync zsh config"
+    git push origin
+fi
