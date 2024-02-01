@@ -129,5 +129,6 @@ subtitleSync() {
     1=`printf %02d $1`
     mv "$subtitle" "${$(ls | grep -e "s"$1".*e"$2".*\.mkv$" -e "S"$1".*E"$2".*\.mkv$")%.mkv}.srt"
 }
+
 export PATH=$PATH:~/.local/bin
 export PATH=/opt/jdk-21.0.2+13/bin:$PATH
