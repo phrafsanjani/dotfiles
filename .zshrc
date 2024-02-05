@@ -101,9 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 # `newc` creates a test.c file with some initial code in . directory.
-alias newc="echo \"#include <stdio.h>\" >> test.c && echo \"\" >> test.c && echo \"int main(void)\" >> test.c && echo \"{\" >> test.c && echo \"\x20\x20\x20\x20return 0;\" >> test.c && echo \"}\" >> test.c"
+alias newc="echo \"#include <stdio.h>\" >> test.c && echo \"\" >> test.c && echo \"int main(void)\" >> test.c && echo \"{\" >> test.c && echo \"\x20\x20\x20\x20return 0;\" >> test.c && echo \"}\" >> test.c && nvim test.c"
 # `newcpp` creates a test.cpp file with some initial code in . directory.
-alias newcpp="echo \"#include <iostream>\" >> test.cpp && echo \"\" >> test.cpp && echo \"using namespace std;\" >> test.cpp && echo \"\" >> test.cpp && echo \"int main()\" >> test.cpp && echo \"{\" >> test.cpp && echo \"}\" >> test.cpp"
+alias newcpp="echo \"#include <iostream>\" >> test.cpp && echo \"\" >> test.cpp && echo \"using namespace std;\" >> test.cpp && echo \"\" >> test.cpp && echo \"int main()\" >> test.cpp && echo \"{\" >> test.cpp && echo \"}\" >> test.cpp && nvim test.cpp"
 alias subtitleWorkshop="cd /home/parsa/Projects/Personal/SubtitleWorkshop && node app.js"
 alias nekoray="/home/parsa/Downloads/Programs/nekoray-2.19-2023-03-08-linux64/nekoray/nekoray"
 # this function downloads the specific letter of Moral Letters to Lucilius
