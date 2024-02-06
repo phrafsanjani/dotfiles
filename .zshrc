@@ -104,6 +104,8 @@ source $ZSH/oh-my-zsh.sh
 alias newc="echo \"#include <stdio.h>\" >> test.c && echo \"\" >> test.c && echo \"int main(void)\" >> test.c && echo \"{\" >> test.c && echo \"\x20\x20\x20\x20return 0;\" >> test.c && echo \"}\" >> test.c && nvim test.c"
 # `newcpp` creates a test.cpp file with some initial code in . directory.
 alias newcpp="echo \"#include <iostream>\" >> test.cpp && echo \"\" >> test.cpp && echo \"using namespace std;\" >> test.cpp && echo \"\" >> test.cpp && echo \"int main()\" >> test.cpp && echo \"{\" >> test.cpp && echo \"}\" >> test.cpp && nvim test.cpp"
+# `newjava` creates a test.java file with some initial code in . directory.
+alias newjava="echo \"public class Test\n{\n\tpublic static void main(String[] args)\n\t{\n\t}\n}\" >> test.java && nvim test.java"
 alias subtitleWorkshop="cd /home/parsa/Projects/Personal/SubtitleWorkshop && node app.js"
 alias nekoray="/home/parsa/Downloads/Programs/nekoray-2.19-2023-03-08-linux64/nekoray/nekoray"
 # this function downloads the specific letter of Moral Letters to Lucilius
