@@ -107,7 +107,7 @@ alias newcpp="echo \"#include <iostream>\n\nusing namespace std;\n\nint main()\n
 # `newjava` creates a test.java file with some initial code in . directory.
 alias newjava="echo \"public class Test\n{\n\tpublic static void main(String[] args)\n\t{\n\t}\n}\" >> test.java && nvim test.java"
 alias subtitleWorkshop="cd $HOME/GitHub/subtitle-workshop && node app.js"
-alias nekoray="/home/parsa/Downloads/Programs/nekoray-2.19-2023-03-08-linux64/nekoray/nekoray"
+alias nekoray="$HOME/Downloads/Programs/nekoray-2.19-2023-03-08-linux64/nekoray/nekoray"
 # this function downloads the specific letter of Moral Letters to Lucilius
 downloadLetter() { youtube-dl -x --audio-format m4a https://www.youtube.com/playlist\?list\=PLzKrfPkpj5om1kEBj7c80cwjJ1JS78FL7 --playlist-items "$1" -o '%(title)s.%(ext)s' }
 protonConnect() {
