@@ -105,7 +105,7 @@ alias newc="echo \"#include <stdio.h>\n\nint main(void)\n{\n\x20\x20\x20\x20retu
 # `newcpp` creates a test.cpp file with some initial code in . directory.
 alias newcpp="echo \"#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n}\" >> test.cpp && nvim test.cpp"
 # `newjava` creates a test.java file with some initial code in . directory.
-alias newjava="echo \"public class Test\n{\n\tpublic static void main(String[] args)\n\t{\n\t}\n}\" >> test.java && nvim test.java"
+alias newjava="echo \"public class Test\n{\n\tpublic static void main(String[] args)\n\t{\n\t}\n}\" >> Test.java && nvim Test.java"
 alias subtitleWorkshop="cd $HOME/GitHub/subtitle-workshop && node app.js"
 alias nekoray="$HOME/Downloads/Programs/nekoray-2.19-2023-03-08-linux64/nekoray/nekoray"
 # this function downloads the specific letter of Moral Letters to Lucilius
