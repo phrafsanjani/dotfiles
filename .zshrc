@@ -106,11 +106,11 @@ alias newc="echo \"#include <stdio.h>\n\nint main(void)\n{\n\x20\x20\x20\x20retu
 alias newcpp="echo \"#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n}\" >> test.cpp && nvim test.cpp"
 # `newjava` creates a test.java file with some initial code in . directory.
 alias newjava="echo \"public class Test\n{\n\tpublic static void main(String[] args)\n\t{\n\t}\n}\" >> Test.java && nvim Test.java"
-alias subtitleWorkshop="cd $HOME/GitHub/subtitle-workshop && node app.js"
+alias subtitle-workshop="cd $HOME/GitHub/subtitle-workshop && node app.js"
 alias nekoray="$HOME/Downloads/Programs/nekoray-2.19-2023-03-08-linux64/nekoray/nekoray"
 # this function downloads the specific letter of Moral Letters to Lucilius
-downloadLetter() { youtube-dl -x --audio-format m4a https://www.youtube.com/playlist\?list\=PLzKrfPkpj5om1kEBj7c80cwjJ1JS78FL7 --playlist-items "$1" -o '%(title)s.%(ext)s' }
-protonConnect() {
+download-moral-letter() { youtube-dl -x --audio-format m4a https://www.youtube.com/playlist\?list\=PLzKrfPkpj5om1kEBj7c80cwjJ1JS78FL7 --playlist-items "$1" -o '%(title)s.%(ext)s' }
+proton-connect() {
     finished=false
     counter=0
     while ! $finished; do
@@ -123,7 +123,7 @@ protonConnect() {
     done
 }
 # function to sync subtitles with video titles
-subtitleSync() {
+subtitle-sync() {
     2=`printf %02d $2`
     directory=$(echo */)
     subtitle=$(ls $directory | grep -e ""$1".*"$2"")
@@ -131,6 +131,8 @@ subtitleSync() {
     1=`printf %02d $1`
     mv "$subtitle" "${$(ls | grep -e "s"$1".*e"$2".*\.mkv$" -e "S"$1".*E"$2".*\.mkv$")%.mkv}.srt"
 }
+# update Calibre
+update-calibre() {sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin }
 
 export PATH=$PATH:~/.local/bin
 export PATH=/opt/jdk-21.0.2+13/bin:$PATH
