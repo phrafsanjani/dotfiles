@@ -65,9 +65,6 @@ snapper
 sof-firmware
 spectacle
 sudo
-sway
-swaybg
-swaylock
 ttf-arphic-ukai
 ttf-arphic-uming
 ttf-dejavu
