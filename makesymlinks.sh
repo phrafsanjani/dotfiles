@@ -39,3 +39,8 @@ sudo mv /etc/pacman.d/hooks/* ~/dotfiles_old/hooks
 echo "Creating symlink to hooks in /etc/pacman.d/hooks."
 sudo mkdir -p /etc/pacman.d/hooks
 sudo ln -s $dir/hooks/* /etc/pacman.d/hooks
+
+echo "Moving any existing pkglist.txt to $olddir"
+sudo mv /etc/pkglist.txt ~/dotfiles_old
+echo "Creating symlink to /etc/pkglist.txt."
+sudo ln -s $dir/pkglist.txt /etc/pkglist.txt
