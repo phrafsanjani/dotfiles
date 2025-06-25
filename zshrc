@@ -149,6 +149,9 @@ hdd-sync() {
         rsync -arv --delete $HOME/Zotero/ Zotero
     fi
 }
+# download best-quality mp4 video from YouTube
+# use --proxy "socks://localhost:<port>" if needed
+yt-highdl() { yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $1 --cookies-from-browser firefox }
 
 export PATH=$PATH:~/.local/bin
 export PATH=/opt/jdk-21.0.2+13/bin:$PATH
