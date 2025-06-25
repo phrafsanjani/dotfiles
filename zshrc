@@ -133,6 +133,23 @@ subtitle-sync() {
 }
 # update Calibre
 update-calibre() {sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin }
+# syncing hard drive
+hdd-sync() {
+    echo -n "Current directory is $(pwd). Continue? [y/N] "
+    read response
+    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+    then
+        rsync -arv --exclude .git/ --delete $HOME/Academia/ Academia
+        rsync -arv --delete $HOME/Calibre\ Library/ Calibre\ Library
+        rsync -arv --delete $HOME/Downloads/ Downloads
+        rsync -arv --delete $HOME/Documents/ Documents
+        rsync -arv --delete $HOME/Music/ Music
+        rsync -arv --exclude .git/ --delete $HOME/GitHub/ GitHub
+        rsync -arv --delete $HOME/Videos/ Videos
+        rsync -arv --delete $HOME/Pictures/ Pictures
+        rsync -arv --delete $HOME/Zotero/ Zotero
+    fi
+}
 
 export PATH=$PATH:~/.local/bin
 export PATH=/opt/jdk-21.0.2+13/bin:$PATH
