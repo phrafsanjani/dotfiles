@@ -18,6 +18,7 @@ $ cd ~/dotfiles
 
 2. Run the setup script:
 ```bash
+$ chmod +x makesymlinks.sh
 $ ./makesymlinks.sh
 ```
 
