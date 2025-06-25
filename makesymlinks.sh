@@ -35,7 +35,7 @@ done
 
 echo "Moving any existing dotfiles from /etc/pacman.d/hooks to $olddir"
 mkdir -p ~/dotfiles_old/hooks
-mv /etc/pacman.d/hooks/* ~/dotfiles_old/hooks
+sudo mv /etc/pacman.d/hooks/* ~/dotfiles_old/hooks
 echo "Creating symlink to hooks in /etc/pacman.d/hooks."
-mkdir /etc/pacman.d/hooks
-ln -s $dir/hooks/* /etc/pacman.d/hooks
+sudo mkdir -p /etc/pacman.d/hooks
+sudo ln -s $dir/hooks/* /etc/pacman.d/hooks
