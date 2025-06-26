@@ -37,6 +37,7 @@ kwalletmanager
 libayatana-appindicator
 linux
 linux-firmware
+maplemono-ttf
 neovim
 networkmanager
 noto-fonts-cjk
