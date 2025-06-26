@@ -9,7 +9,6 @@
 dir="$HOME/dotfiles"                    # dotfiles directory
 olddir="$HOME/dotfiles_old"             # old dotfiles backup directory
 files="zshrc"                           # list of files/folders to symlink in homedir
-configs="nvim go"
 
 ##########
 
@@ -25,13 +24,17 @@ for file in $files; do
     ln -s $dir/$file $HOME/.$file
 done
 
-for config in $configs; do
-    echo "Moving any existing dotfiles from ~/.config to $olddir"
-    mkdir -p ~/dotfiles_old/$config
-    mv ~/.config/$config/* ~/dotfiles_old/$config
-    echo "Creating symlink to $config in ~/.config."
-    ln -s $dir/$config/* $HOME/.config/$config
-done
+echo "Moving any existing env from ~/.config/go to $olddir"
+mkdir -p ~/dotfiles_old/go
+mv ~/.config/go/env ~/dotfiles_old/go
+echo "Creating symlink to go/env in ~/.config/go."
+ln -s $dir/go/env $HOME/.config/go/env
+
+echo "Moving any existing init.vim from ~/.config/nvim to $olddir"
+mkdir -p ~/dotfiles_old/nvim
+mv ~/.config/nvim/init.vim ~/dotfiles_old/nvim
+echo "Creating symlink to nvim/init.vim in ~/.config/nvim."
+ln -s $dir/nvim/init.vim $HOME/.config/nvim/init.vim
 
 echo "Moving any existing dotfiles from /etc/pacman.d/hooks to $olddir"
 mkdir -p ~/dotfiles_old/hooks
