@@ -75,7 +75,6 @@ ttf-opensans
 visual-studio-code-bin
 vlc
 vulkan-intel
-wmenu
 xdg-desktop-portal-kde
 xorg-xwayland
 yay
