@@ -66,6 +66,12 @@ snapper
 sof-firmware
 spectacle
 sudo
+texlive-binextra
+texlive-fontsrecommended
+texlive-latex
+texlive-latexextra
+texlive-latexrecommended
+texlive-xetex
 ttf-arphic-ukai
 ttf-arphic-uming
 ttf-dejavu
