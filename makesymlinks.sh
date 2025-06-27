@@ -52,3 +52,9 @@ echo "Moving any existing VS Code settings.json to $olddir"
 mv ~/.config/Code/User/settings.json ~/dotfiles_old/code-settings.json
 echo "Creating symlink to code-settings.json."
 ln -s $dir/code-settings.json $HOME/.config/Code/User/settings.json
+
+fontsconfig_dir="$HOME/.config/fontconfig/fonts.conf"
+echo "Moving any existing fonts.conf to $olddir"
+mv $fontsconfig_dir ~/dotfiles_old
+echo "Creating symlink to fonts.conf."
+ln -s $dir/fonts.conf $fontsconfig_dir
