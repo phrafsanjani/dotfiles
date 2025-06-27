@@ -17,6 +17,7 @@ dolphin
 efibootmgr
 ffmpegthumbs
 firefox
+firewalld
 fuse2
 git
 grub
