@@ -39,6 +39,7 @@ libayatana-appindicator
 linux
 linux-firmware
 maplemono-ttf
+maplemononl-ttf
 neovim
 networkmanager
 noto-fonts-cjk
