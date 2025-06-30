@@ -143,6 +143,7 @@ hdd-sync() {
         rsync -arv --delete $HOME/Downloads/ Downloads
         rsync -arv --delete $HOME/Documents/ Documents
         rsync -arv --delete $HOME/Music/ Music
+        rsync -arv --exclude .git/ --delete $HOME/dotfiles/ dotfiles
         rsync -arv --exclude .git/ --delete $HOME/GitHub/ GitHub
         rsync -arv --delete $HOME/Videos/ Videos
         rsync -arv --delete $HOME/Pictures/ Pictures
