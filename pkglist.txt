@@ -70,6 +70,7 @@ spectacle
 sudo
 texlive-binextra
 texlive-fontsrecommended
+texlive-langarabic
 texlive-latex
 texlive-latexextra
 texlive-latexrecommended
