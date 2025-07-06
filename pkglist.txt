@@ -46,6 +46,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 okular
 openssh
+pacman-boot-backup-hook
 pacman-contrib
 patchelf
 pipewire-alsa
