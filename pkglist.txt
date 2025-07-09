@@ -28,6 +28,7 @@ hiddify-next-bin
 intel-media-driver
 intel-ucode
 joplin-appimage
+julia-bin
 kate
 kde-gtk-config
 kdeplasma-addons
