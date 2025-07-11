@@ -85,6 +85,7 @@ ttf-liberation
 ttf-opensans
 visual-studio-code-bin
 vlc
+vlc-plugins-all
 vulkan-intel
 xdg-desktop-portal-kde
 xorg-xwayland
