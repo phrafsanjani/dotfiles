@@ -58,3 +58,9 @@ echo "Moving any existing fonts.conf to $olddir"
 mv $fontsconfig_dir ~/dotfiles_old
 echo "Creating symlink to fonts.conf."
 ln -s $dir/fonts.conf $fontsconfig_dir
+
+force_publickey_auth_conf="/etc/ssh/sshd_config.d/20-force_publickey_auth.conf"
+echo "Moving any existing 20-force_publickey_auth.conf to $olddir"
+sudo mv $force_publickey_auth_conf ~/dotfiles_old
+echo "Creating symlink to force_publickey_auth.conf."
+sudo ln -s $dir/force_publickey_auth.conf $force_publickey_auth_conf
