@@ -10,18 +10,35 @@ My personal dotfiles for Arch Linux, managed with Git for easy setup and synchro
 
 ## 🚀 Installation
 
+### Quick Start
+
 1. Clone this repository to your home directory:
 ```bash
 $ git clone https://github.com/parasilius/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
 ```
-
 2. Run the setup script:
 ```bash
 $ chmod +x makesymlinks.sh
-$ ./makesymlinks.sh
+./setup.sh
 ```
 
-This will:
-- Create symbolic links in the user's filesystem that point to the corresponding configuration files in `~/dotfiles`
-- Backup existing dotfiles to `~/dotfiles_old`
+### What This Script Does
+
+The setup script manages your dotfiles by:
+
+1. Creating Backups:
+    - Creates a backup directory at `~/dotfiles/.dotfiles_old`
+    - Safely moves existing dotfiles to this backup directory before making changes
+    - Preserves previous backups of privileged files by appending .old if conflicts occur
+
+2. Managing User Dotfiles:
+    - Creates symbolic links from your home directory to the dotfiles in this repo
+    - Handles files in `~/.config` and other locations
+
+3. Managing Privileged Files:
+    - Copies (rather than symlinks) root-owned files to system locations
+
+4. Smart Comparison:
+    - Only makes changes when files differ (using `cmp -s`)
+    - Preserves identical files without unnecessary operations
