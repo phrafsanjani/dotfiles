@@ -25,5 +25,3 @@ $ ./makesymlinks.sh
 This will:
 - Create symbolic links in the user's filesystem that point to the corresponding configuration files in `~/dotfiles`
 - Backup existing dotfiles to `~/dotfiles_old`
-
-⚠️ Note that running this script more than once results in symbolic links stored in `~/dotfiles_old`.
