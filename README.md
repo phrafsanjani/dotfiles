@@ -30,7 +30,7 @@ The setup script manages your dotfiles by:
 1. Creating Backups:
     - Creates a backup directory at `~/dotfiles/.dotfiles_old`
     - Safely moves existing dotfiles to this backup directory before making changes
-    - Preserves previous backups of privileged files by appending .old if conflicts occur
+    - Preserves previous backups of privileged files by appending `.old` if conflicts occur
 
 2. Managing User Dotfiles:
     - Creates symbolic links from your home directory to the dotfiles in this repo
