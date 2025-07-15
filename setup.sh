@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir="$HOME/dotfiles"
-olddir="$HOME/dotfiles_old"      # old dotfiles backup directory
+olddir="$dir/.dotfiles_old"      # old dotfiles backup directory
 
 if [ -d "$olddir" ]; then
     echo "Directory '$olddir' already exists - continuing..."
