@@ -101,7 +101,7 @@ setup_root_config() {
         else
             echo "Backing up existing $user_config_path to $olddir"
             mkdir -p "$olddir/$dotfiles_configs_dir"
-            if [ -f "$backup_config_path" ]; then
+            if [ -f "$user_config_path" ]; then
                 if [ -f "$backup_config_path" ]; then
                     echo "Moving previous $backup_config_path to $backup_config_path.old"
                     sudo mv "$backup_config_path" "$backup_config_path.old"
