@@ -64,3 +64,9 @@ echo "Moving any existing 20-force_publickey_auth.conf to $olddir"
 sudo mv $force_publickey_auth_conf ~/dotfiles_old
 echo "Creating symlink to force_publickey_auth.conf."
 sudo ln -s $dir/force_publickey_auth.conf $force_publickey_auth_conf
+
+deny_root_conf="/etc/ssh/sshd_config.d/20-deny_root.conf"
+echo "Moving any existing 20-deny_root.conf to $olddir"
+sudo mv $deny_root_conf ~/dotfiles_old
+echo "Creating symlink to deny_root.conf."
+sudo ln -s $dir/deny_root.conf $deny_root_conf
