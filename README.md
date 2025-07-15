@@ -19,7 +19,7 @@ $ cd ~/dotfiles
 ```
 2. Run the setup script:
 ```bash
-$ chmod +x makesymlinks.sh
+$ chmod +x setup.sh
 ./setup.sh
 ```
 
