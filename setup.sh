@@ -30,7 +30,7 @@ setup_config() {
     # Validate all arguments are provided
     if [[ $# -ne 3 ]]; then
         echo "Error: Missing arguments"
-        echo "Usage: setup_config user_config_path dotfiles_config_dir dotfiles_config_file olddir dotfiles_dir"
+        echo "Usage: setup_config user_config_path dotfiles_config_dir dotfiles_config_file"
         return 1
     fi
 
@@ -56,7 +56,7 @@ setup_configs() {
     # Validate all arguments are provided
     if [[ $# -ne 2 ]]; then
         echo "Error: Missing arguments"
-        echo "Usage: setup_configs user_configs_dir configs_dir olddir dotfiles_dir"
+        echo "Usage: setup_configs user_configs_dir configs_dir"
         return 1
     fi
 
@@ -89,7 +89,7 @@ setup_root_config() {
     # Validate all arguments are provided
     if [[ $# -ne 3 ]]; then
         echo "Error: Missing arguments"
-        echo "Usage: setup_root_config user_config_path dotfiles_config_dir dotfiles_config_file olddir dotfiles_dir"
+        echo "Usage: setup_root_config user_config_path dotfiles_config_dir dotfiles_config_file"
         return 1
     fi
 
@@ -121,7 +121,7 @@ setup_root_configs() {
     # Validate all arguments are provided
     if [[ $# -ne 2 ]]; then
         echo "Error: Missing arguments"
-        echo "Usage: setup_root_configs user_configs_dir configs_dir olddir dotfiles_dir"
+        echo "Usage: setup_root_configs user_configs_dir configs_dir"
         return 1
     fi
 
