@@ -70,7 +70,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -173,3 +173,19 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes.
+zle-keymap-select () {
+    if [[ $KEYMAP == vicmd ]]; then
+        # the command mode for vi
+        echo -ne "\e[2 q"
+    else
+        # the insert mode for vi
+        echo -ne "\e[5 q"
+    fi
+}
+precmd_functions+=(zle-keymap-select)
+zle -N zle-keymap-select
