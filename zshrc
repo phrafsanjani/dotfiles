@@ -184,7 +184,7 @@ zle-keymap-select () {
         echo -ne "\e[2 q"
     else
         # the insert mode for vi
-        echo -ne "\e[5 q"
+        echo -ne "\e[6 q"
     fi
 }
 precmd_functions+=(zle-keymap-select)
