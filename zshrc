@@ -189,3 +189,6 @@ zle-keymap-select () {
 }
 precmd_functions+=(zle-keymap-select)
 zle -N zle-keymap-select
+
+# Syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
