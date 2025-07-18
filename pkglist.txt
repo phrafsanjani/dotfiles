@@ -15,6 +15,7 @@ cantarell-fonts
 cups
 dolphin
 efibootmgr
+elisa
 ffmpegthumbs
 firefox
 firewalld
