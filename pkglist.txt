@@ -95,4 +95,5 @@ yay-debug
 yt-dlp
 zotero-bin
 zsh
+zsh-autosuggestions
 zsh-syntax-highlighting
