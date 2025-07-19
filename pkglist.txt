@@ -82,6 +82,7 @@ ttf-dejavu
 ttf-hack
 ttf-liberation
 ttf-opensans
+unrar
 vazirmatn-fonts
 visual-studio-code-bin
 vlc
