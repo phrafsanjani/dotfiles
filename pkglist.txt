@@ -47,6 +47,7 @@ okular
 openssh
 pacman-boot-backup-hook
 pacman-contrib
+pacman-log-orphans-hook
 patchelf
 pipewire-alsa
 pipewire-pulse
