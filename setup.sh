@@ -10,16 +10,28 @@ else
     mkdir -p $olddir
 fi
 
+backup_config() {
+    user_config_path=$1
+    backup_config_path=$2
+    if [ -f "$user_config_path" ]; then
+        if cmp -s "$user_config_path" "$backup_config_path"; then
+            echo "$user_config_path and $backup_config_path are identical - continuing..."
+        else
+            if [ -f "$backup_config_path" ]; then
+                echo "Moving previous $backup_config_path to $backup_config_path.old"
+                mv "$backup_config_path" "$backup_config_path.old"
+            fi
+            echo "Writing $user_config_path contents to $backup_config_path"
+            echo $user_config_path > $backup_config_path
+        fi
+    fi
+}
+
 home_files="zshrc"
 for file in $home_files; do
-    if cmp -s "~/.$file" "$olddir/$file"; then
-        echo "~/.$file and $olddir/$file are identical - continuing..."
-    else
-        echo "Moving ".$file" from ~ to $olddir"
-        mv ~/.$file $olddir/$file
-        echo "Creating symlink to $file in home directory."
-        ln -s $dir/$file $HOME/.$file
-    fi
+    backup_config "$HOME/.$file" "$olddir/$file"
+    echo "Creating symlink to $dir/$file in home directory."
+    ln -s $dir/$file $HOME/.$file
 done
 
 setup_config() {
@@ -36,17 +48,9 @@ setup_config() {
 
     local backup_config_path="$olddir/$dotfiles_config_dir/$dotfiles_config_file"
     local dotfiles_config_path="$dir/$dotfiles_config_dir/$dotfiles_config_file"
-    if cmp -s "$user_config_path" "$backup_config_path"; then
-        echo "$user_config_path and $backup_config_path are identical - continuing..."
-    else
-        if [ -f "$user_config_path" ]; then
-            echo "Backing up existing $user_config_path to $olddir"
-            mkdir -p "$olddir/$dotfiles_config_dir"
-            mv "$user_config_path" "$backup_config_path"
-        fi
-        echo "Creating symlink to $dotfiles_config_path"
-        ln -s "$dotfiles_config_path" "$user_config_path"
-    fi
+    backup_config "$user_config_path" "$backup_config_path"
+    echo "Creating symlink to $dotfiles_config_path"
+    ln -s "$dotfiles_config_path" "$user_config_path"
 }
 
 setup_configs() {
@@ -67,18 +71,10 @@ setup_configs() {
         local user_config_path="$user_configs_dir/$config"
         local dotfiles_config_path="$dotfiles_configs_dir/$config"
         local backup_config_path="$backup_configs_dir/$config"
-        if cmp -s "$user_config_path" "$backup_config_path"; then
-            echo "$user_config_path and $backup_config_path are identical - continuing..."
-        else
-            if [ -f "$user_config_path" ]; then
-                echo "Backing up existing $user_config_path to $olddir"
-                mkdir -p "$olddir/$dotfiles_configs_dir"
-                mv "$user_config_path" "$backup_config_path"
-            fi
-            echo "Creating symlink to $dotfiles_config_path"
-            ln -s "$dotfiles_configs_dir/*" "$user_configs_dir"
-        fi
+        backup_config "$user_config_path" "$backup_config_path"
     done
+    echo "Creating symlink to $dotfiles_configs_dir"
+    ln -s "$dotfiles_configs_dir/*" "$user_configs_dir"
 }
 
 setup_root_config() {
