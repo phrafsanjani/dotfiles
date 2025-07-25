@@ -26,8 +26,9 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 # Case insensitive completion
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
