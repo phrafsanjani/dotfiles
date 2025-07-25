@@ -163,6 +163,8 @@ export PATH=/opt/jdk-21.0.2+13/bin:$PATH
 bindkey -v
 export KEYTIMEOUT=1
 
+bindkey -v '^?' backward-delete-char
+
 # Change cursor shape for different vi modes.
 zle-keymap-select () {
     if [[ $KEYMAP == vicmd ]]; then
