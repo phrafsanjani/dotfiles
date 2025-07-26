@@ -29,6 +29,7 @@ bindkey "^[[B" down-line-or-beginning-search
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} "ma=48;5;244;1"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
