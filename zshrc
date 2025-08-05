@@ -64,7 +64,7 @@ update-calibre() {sudo -v && wget -nv -O- https://download.calibre-ebook.com/lin
 
 # syncing hard drive
 hdd-sync() {
-    echo -n "Current directory is $(pwd). Continue? [y/N] "
+    echo -n "Current directory: $(pwd). Is this the External Hard Drive (EDH)? [y/N] "
     read response
     if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
     then
@@ -116,7 +116,9 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 # Syntax highlighting
+# requires zsh-syntax-highlighting package
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autosuggestions
+# requires zsh-autosuggestions package
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
