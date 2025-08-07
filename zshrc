@@ -1,8 +1,6 @@
 # Prompt
-precmd() {
-    print -rP "%B%F{green}╭─%f%b[%B%F{cyan}%n%f%b%B%F{white}@%f%b%B%F{magenta}%m%f%b %B%F{blue}%~%f%b]"
-}
-PROMPT='%B%F{green}╰─%f%b%B%F{red}❯%f%b '
+NEWLINE=$'\n'
+PROMPT="%B%F{green}╭─%f%b[%B%F{cyan}%n%f%b%B%F{white}@%f%b%B%F{magenta}%m%f%b %B%F{blue}%~%f%b]${NEWLINE}%B%F{green}╰─%f%b%B%F{red}❯%f%b "
 
 # History opts
 HISTSIZE=1000000
