@@ -62,6 +62,7 @@ power-profiles-daemon
 powerdevil
 print-manager
 qt5-wayland
+r
 reflector
 rsync
 sddm
