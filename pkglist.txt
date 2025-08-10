@@ -78,6 +78,7 @@ texlive-langarabic
 texlive-latex
 texlive-latexextra
 texlive-latexrecommended
+texlive-mathscience
 texlive-xetex
 tsocks
 ttf-arphic-ukai
