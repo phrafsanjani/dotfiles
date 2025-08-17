@@ -58,6 +58,7 @@ plasma-firewall
 plasma-nm
 plasma-pa
 plasma-systemmonitor
+positron-ide-devel-bin
 power-profiles-daemon
 powerdevil
 print-manager
