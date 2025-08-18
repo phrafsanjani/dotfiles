@@ -149,7 +149,7 @@ setup_root_configs() {
 }
 
 setup_config "$HOME/.config/go/env" "go" "env"
-setup_config "$HOME/.config/nvim/init.vim" "nvim" "init.vim"
+setup_config "$HOME/.config/nvim/init.lua" "nvim" "init.lua"
 setup_root_configs "/etc/pacman.d/hooks" "hooks"
 setup_root_config "/etc/pkglist.txt" "." "pkglist.txt"
 setup_config "$HOME/.config/Code/User/settings.json" "." "code-settings.json"
