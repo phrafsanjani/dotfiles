@@ -95,6 +95,7 @@ vlc
 vlc-plugins-all
 vulkan-intel
 wget
+wl-clipboard
 xdg-desktop-portal-kde
 xorg-xwayland
 yay
