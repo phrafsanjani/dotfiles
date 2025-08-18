@@ -15,6 +15,10 @@ backup_config() {
     backup_config_path=$2
     if [ -f "$user_config_path" ]; then
         if cmp -s "$user_config_path" "$backup_config_path"; then
+            if [ ! -L "$user_config_path" ]; then
+                echo "Removing $user_config_path"
+                rm $user_config_path
+            fi
             echo "$user_config_path and $backup_config_path are identical - continuing..."
         else
             if [ -f "$backup_config_path" ]; then
@@ -22,7 +26,9 @@ backup_config() {
                 mv "$backup_config_path" "$backup_config_path.old"
             fi
             echo "Writing $user_config_path contents to $backup_config_path"
-            echo $user_config_path > $backup_config_path
+            mkdir -p "$(dirname "$backup_config_path")" && cat $user_config_path > $backup_config_path
+            echo "Removing $user_config_path"
+            rm $user_config_path
         fi
     fi
 }
