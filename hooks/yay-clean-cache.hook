@@ -8,5 +8,5 @@ Target = *
 [Action]
 Description = Clean Yay cache: Keep only latest version of each AUR package
 When = PostTransaction
-Exec = /usr/bin/bash -c 'find "$HOME/.cache/yay" -maxdepth 1 -type d -not -path "$HOME/.cache/yay" -exec sh -c "paccache -rvk1 -c {}" \;'
+Exec = /usr/bin/bash -c 'find "/home/parsa/.cache/yay" -maxdepth 1 -type d -not -path "/home/parsa/.cache/yay" -exec sh -c "paccache -rvk1 -c {}" \;'
 Depends = pacman-contrib
