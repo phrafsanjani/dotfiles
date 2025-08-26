@@ -29,6 +29,7 @@ joplin-appimage
 julia-bin
 kate
 kde-gtk-config
+kdeconnect
 kdeplasma-addons
 konsole
 kscreen
