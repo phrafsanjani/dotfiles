@@ -9,6 +9,7 @@ breeze-gtk
 brightnessctl
 calibre
 cantarell-fonts
+cmake
 cups
 dolphin
 efibootmgr
@@ -17,6 +18,7 @@ ffmpegthumbs
 firefox
 firewalld
 fuse2
+gcc-fortran
 git
 grub
 grub-btrfs
