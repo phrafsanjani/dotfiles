@@ -49,6 +49,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 okular
 openssh
+paccache-hook
 pacman-boot-backup-hook
 pacman-contrib
 pacman-log-orphans-hook
