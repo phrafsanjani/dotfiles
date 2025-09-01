@@ -1,6 +1,8 @@
 #!/bin/bash
 
-dir="$HOME/dotfiles"
+source .env
+
+dir="$DOTFILES_PATH"
 olddir="$dir/.dotfiles_old"      # old dotfiles backup directory
 
 if [ -d "$olddir" ]; then

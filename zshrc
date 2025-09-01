@@ -1,3 +1,5 @@
+source .env
+
 # Prompt
 NEWLINE=$'\n'
 PROMPT="%B%F{green}╭─%f%b[%B%F{cyan}%n%f%b%B%F{white}@%f%b%B%F{magenta}%m%f%b %B%F{blue}%~%f%b]${NEWLINE}%B%F{green}╰─%f%b%B%F{red}❯%f%b "
@@ -71,8 +73,7 @@ hdd-sync() {
         rsync -arv --delete $HOME/Downloads/ Downloads
         rsync -arv --delete $HOME/Documents/ Documents
         rsync -arv --delete $HOME/Music/ Music
-        rsync -arv --exclude .git/ --delete $HOME/dotfiles/ dotfiles
-        rsync -arv --exclude .git/ --delete $HOME/GitHub/ GitHub
+        github-backup -f $FINE_ACCESS_TOKEN -o GitHub -l error --starred --repositories --wikis --gists --starred-gists --private --latest-releases 1 $GITHUB_USERNAME
         rsync -arv --delete $HOME/Videos/ Videos
         rsync -arv --delete $HOME/Pictures/ Pictures
         rsync -arv --delete $HOME/Zotero/ Zotero
