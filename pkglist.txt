@@ -64,6 +64,7 @@ positron-ide-devel-bin
 power-profiles-daemon
 powerdevil
 print-manager
+python-pipx
 qt5-wayland
 r
 reflector
