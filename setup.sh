@@ -1,11 +1,9 @@
 #!/bin/bash
 
 if [ ! -f .env ]; then
+    echo "Creating .env"
     touch .env
     chmod 600 .env
-    echo "Creating .env"
-    read -p "Enter the location of dotfiles directory: " DOTFILES_PATH
-    echo "DOTFILES_PATH=$DOTFILES_PATH" >> .env
     read -p "Enter your GitHub username: " GITHUB_USERNAME
     echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> .env
     read -p "Enter your GitHub Fine-grained token: " FINE_ACCESS_TOKEN

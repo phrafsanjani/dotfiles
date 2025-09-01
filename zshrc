@@ -1,4 +1,4 @@
-source .env
+source $HOME/dotfiles/.env
 
 # Prompt
 NEWLINE=$'\n'
