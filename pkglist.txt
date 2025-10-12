@@ -27,7 +27,8 @@ gwenview
 hiddify-next-bin
 intel-media-driver
 intel-ucode
-julia-bin
+juliaup
+juliaup-debug
 kate
 kde-gtk-config
 kdeconnect
@@ -103,7 +104,6 @@ wl-clipboard
 xdg-desktop-portal-kde
 xorg-xwayland
 yay
-yay-debug
 yt-dlp
 zotero-bin
 zsh
