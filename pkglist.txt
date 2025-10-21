@@ -28,11 +28,11 @@ hiddify-next-bin
 intel-media-driver
 intel-ucode
 juliaup
-juliaup-debug
 kate
 kde-gtk-config
 kdeconnect
 kdeplasma-addons
+keepassxc
 konsole
 kscreen
 kwallet-pam
@@ -78,6 +78,7 @@ snapper
 sof-firmware
 spectacle
 sudo
+syncthing
 texlive-binextra
 texlive-fontsrecommended
 texlive-langarabic
