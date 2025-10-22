@@ -79,6 +79,7 @@ sof-firmware
 spectacle
 sudo
 syncthing
+texlive-bibtexextra
 texlive-binextra
 texlive-fontsrecommended
 texlive-langarabic
