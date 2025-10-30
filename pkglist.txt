@@ -81,6 +81,7 @@ sudo
 syncthing
 texlive-bibtexextra
 texlive-binextra
+texlive-fontsextra
 texlive-fontsrecommended
 texlive-langarabic
 texlive-latex
