@@ -73,7 +73,7 @@ hdd-sync() {
         rsync -arv --delete $HOME/Downloads/ Downloads
         rsync -arv --delete $HOME/Documents/ Documents
         rsync -arv --delete $HOME/Music/ Music
-        github-backup -f $FINE_ACCESS_TOKEN -o GitHub -l error --starred --repositories --wikis --gists --starred-gists --private --latest-releases 1 $GITHUB_USERNAME
+        github-backup -f $FINE_ACCESS_TOKEN -o GitHub -l error --incremental-by-files --starred --repositories --wikis --gists --starred-gists --private --fork --latest-releases 1 $GITHUB_USERNAME
         rsync -arv --delete $HOME/Videos/ Videos
         rsync -arv --delete $HOME/Pictures/ Pictures
         rsync -arv --delete $HOME/Zotero/ Zotero
