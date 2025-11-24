@@ -77,7 +77,7 @@ hdd-sync() {
         rsync -arv $HOME/Videos/ Videos
         rsync -arv --delete $HOME/Pictures/ Pictures
         rsync -arv --delete $HOME/Zotero/ Zotero
-        rsync -arv --delete $HOME/KeePass/ KeePass
+        rsync -arv $HOME/KeePass/ KeePass
     fi
 }
 
