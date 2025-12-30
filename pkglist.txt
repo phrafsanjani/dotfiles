@@ -11,6 +11,7 @@ calibre
 cantarell-fonts
 cmake
 cups
+discord
 dolphin
 efibootmgr
 elisa
