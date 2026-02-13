@@ -26,9 +26,11 @@ grub-btrfs
 gsfonts
 gwenview
 hiddify-next-bin
+imagemagick
 img2pdf
 intel-media-driver
 intel-ucode
+jpegoptim
 juliaup
 kate
 kde-gtk-config
