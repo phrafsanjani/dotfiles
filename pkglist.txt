@@ -55,6 +55,7 @@ pacman-contrib
 pacman-log-orphans-hook
 patchelf
 pdfarranger
+perl-image-exiftool
 pipewire-alsa
 pipewire-pulse
 plasma-browser-integration
