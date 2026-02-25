@@ -76,7 +76,6 @@ reflector
 rsync
 sddm
 sddm-kcm
-sioyek-appimage
 snapper
 sof-firmware
 spectacle
