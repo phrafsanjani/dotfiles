@@ -46,6 +46,7 @@ linux
 linux-firmware
 maplemono-ttf
 maplemononl-ttf
+microsoft-edge-stable-bin
 neovim
 networkmanager
 noto-fonts-cjk
