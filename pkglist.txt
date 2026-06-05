@@ -24,7 +24,6 @@ grub
 grub-btrfs
 gsfonts
 gwenview
-hiddify-next-bin
 imagemagick
 img2pdf
 intel-media-driver
@@ -91,6 +90,7 @@ texlive-latexextra
 texlive-latexrecommended
 texlive-mathscience
 texlive-xetex
+throne
 tsocks
 ttf-arphic-ukai
 ttf-arphic-uming
