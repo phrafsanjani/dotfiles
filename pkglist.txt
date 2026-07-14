@@ -20,6 +20,8 @@ firewalld
 fuse2
 gcc-fortran
 git
+git-filter-repo
+github-cli
 grub
 grub-btrfs
 gsfonts
