@@ -73,12 +73,81 @@ hdd-sync() {
         rsync -arv --delete $HOME/Downloads/ Downloads
         rsync -arv --delete $HOME/Documents/ Documents
         rsync -arv --delete $HOME/Music/ Music
-        github-backup -f $FINE_ACCESS_TOKEN -o GitHub -l error --incremental-by-files --starred --repositories --wikis --gists --starred-gists --private --fork --latest-releases 1 $GITHUB_USERNAME
         rsync -arv $HOME/Videos/ Videos
         rsync -arv --delete $HOME/Pictures/ Pictures
         rsync -arv --delete $HOME/Zotero/ Zotero
         rsync -arv $HOME/KeePass/ KeePass
-    fi
+
+        # GitHub Backup
+
+        eval $(ssh-agent -s)
+        ssh-add ~/.ssh/id_ed25519
+
+        BACKUP_DIR="GitHub"
+        mkdir -p "$BACKUP_DIR"
+        cd "$BACKUP_DIR" || exit
+
+        echo "🎯 Starting GitHub Backup..."
+
+        # ---------------------------------------------------------------------
+        # 1. OWN REPOSITORIES (Public & Private)
+        # ---------------------------------------------------------------------
+        echo "\n📦 1. Fetching your own repositories..."
+        my_repos=$(gh repo list --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner')
+
+        for repo in ${(f)my_repos}; do
+            mkdir -p "my-repos/$(dirname "$repo")"
+            if [ -d "my-repos/$repo/.git" ]; then
+                echo "  🔄 Updating: my-repos/$repo"
+                (cd "my-repos/$repo" && git fetch --all --prune && git pull)
+            else
+                echo "  📥 Cloning: my-repos/$repo"
+                gh repo clone "$repo" "my-repos/$repo"
+            fi
+        done
+
+        # ---------------------------------------------------------------------
+        # 2. REPOSITORY WIKIS
+        # ---------------------------------------------------------------------
+        echo "\n📖 2. Fetching repository Wikis..."
+        for repo in ${(f)my_repos}; do
+            mkdir -p "wikis/$(dirname "$repo")"
+            if [ -d "wikis/$repo/.git" ]; then
+                echo "  🔄 Updating wiki: wikis/$repo"
+                (cd "wikis/$repo" && git fetch --all --prune && git pull)
+            else
+                gh repo clone "${repo}.wiki" "wikis/$repo" >/dev/null 2>.wiki_err.log
+        
+                if [ $? -eq 0 ]; then
+                    echo "  📥 Cloned wiki: wikis/$repo"
+                elif ! grep -q -i "repository not found" .wiki_err.log; then
+                    echo "  ❌ Error syncing wiki: wikis/$repo"
+                    cat .wiki_err.log
+                fi
+                rm -f .wiki_err.log
+            fi
+        done
+
+        # ---------------------------------------------------------------------
+        # 4. PERSONAL GISTS
+        # ---------------------------------------------------------------------
+        echo "\n📝 4. Fetching personal Gists..."
+        gists=$(gh api gists --paginate --jq '.[].id')
+
+        for gist in ${(f)gists}; do
+            if [ -d "gists/$gist/.git" ]; then
+                echo "  🔄 Updating gist: gists/$gist"
+                (cd "gists/$gist" && git fetch --all --prune && git pull)
+            else
+                echo "  📥 Cloning gist: gists/$gist"
+                gh gist clone "$gist" "gists/$gist"
+            fi
+        done
+
+        echo "\n🎉 All assets synced successfully inside: $BACKUP_DIR"
+        fi
+
+        cd ..
 }
 
 # download best-quality mp4 video from YouTube
