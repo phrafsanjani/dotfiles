@@ -93,19 +93,39 @@ hdd-sync() {
         echo "🎯 Starting GitHub Backup..."
 
         # ---------------------------------------------------------------------
-        # 1. OWN REPOSITORIES (Public & Private)
+        # 1. OWN REPOSITORIES (Public & Private) – only main/master
         # ---------------------------------------------------------------------
         echo "\n📦 1. Fetching your own repositories..."
         my_repos=$(gh repo list --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner')
 
         for repo in ${(f)my_repos}; do
+            # ---------- Determine which branch to track ----------
+            target_branch="main"
+            if ! gh api "repos/$repo/branches/main" --silent 2>/dev/null; then
+                if gh api "repos/$repo/branches/master" --silent 2>/dev/null; then
+                    target_branch="master"
+                else
+                    echo "  ⚠️ Skipping $repo (neither main nor master found)"
+                    continue
+                fi
+            fi
+
             mkdir -p "my-repos/$(dirname "$repo")"
+
             if [ -d "my-repos/$repo/.git" ]; then
-                echo "  🔄 Updating: my-repos/$repo"
-                (cd "my-repos/$repo" && git fetch --all --prune && git pull)
+                # ---------- Update existing repo ----------
+                echo "  🔄 Updating: my-repos/$repo (tracking $target_branch only)"
+                (cd "my-repos/$repo" && {
+                    # Fetch updates ONLY for the target branch
+                    git fetch origin "$target_branch"
+                    # Force the local branch to match the remote (discards local changes)
+                    git checkout -B "$target_branch" "origin/$target_branch"
+                })
             else
-                echo "  📥 Cloning: my-repos/$repo"
-                gh repo clone "$repo" "my-repos/$repo"
+                # ---------- Fresh clone ----------
+                echo "  📥 Cloning: my-repos/$repo (only $target_branch branch)"
+                # --single-branch and --branch limit the clone to exactly that branch
+                gh repo clone "$repo" "my-repos/$repo" -- --single-branch --branch "$target_branch"
             fi
         done
 
