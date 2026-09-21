@@ -1,4 +1,3 @@
-alacritty
 ark
 base
 base-devel
@@ -23,6 +22,7 @@ firewalld
 fuse2
 fuzzel
 gcc-fortran
+ghostty
 git
 git-filter-repo
 github-cli
