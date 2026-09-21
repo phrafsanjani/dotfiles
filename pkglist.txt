@@ -39,7 +39,6 @@ kde-gtk-config
 kdeconnect
 kdeplasma-addons
 keepassxc
-konsole
 kscreen
 kwallet-pam
 kwalletmanager
