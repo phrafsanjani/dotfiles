@@ -1,3 +1,4 @@
+alacritty
 ark
 base
 base-devel
@@ -9,8 +10,10 @@ breeze-gtk
 brightnessctl
 calibre
 cantarell-fonts
+cava
 cmake
 cups
+dms-shell-niri
 dolphin
 efibootmgr
 elisa
@@ -46,9 +49,11 @@ linux
 linux-firmware
 maplemono-ttf
 maplemononl-ttf
+matugen
 microsoft-edge-stable-bin
 neovim
 networkmanager
+niri
 noto-fonts-cjk
 noto-fonts-emoji
 openssh
@@ -108,8 +113,10 @@ vlc-plugins-all
 vulkan-intel
 wget
 wl-clipboard
+xdg-desktop-portal-gnome
 xdg-desktop-portal-kde
 xorg-xwayland
+xwayland-satellite
 yay
 yt-dlp
 zotero-bin
