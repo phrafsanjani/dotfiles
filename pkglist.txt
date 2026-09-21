@@ -21,6 +21,7 @@ ffmpegthumbs
 firefox
 firewalld
 fuse2
+fuzzel
 gcc-fortran
 git
 git-filter-repo
