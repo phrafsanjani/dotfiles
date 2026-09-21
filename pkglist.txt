@@ -1,3 +1,4 @@
+7zip
 ark
 base
 base-devel
@@ -16,11 +17,13 @@ dms-shell-niri
 dolphin
 efibootmgr
 elisa
+fd
 ffmpegthumbs
 firefox
 firewalld
 fuse2
 fuzzel
+fzf
 gcc-fortran
 ghostty
 git
@@ -34,6 +37,7 @@ imagemagick
 img2pdf
 intel-media-driver
 intel-ucode
+jq
 juliaup
 kate
 kde-gtk-config
@@ -117,8 +121,10 @@ xdg-desktop-portal-kde
 xorg-xwayland
 xwayland-satellite
 yay
+yazi
 yt-dlp
 zotero-bin
+zoxide
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
