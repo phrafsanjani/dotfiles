@@ -84,7 +84,6 @@ sddm
 sddm-kcm
 snapper
 sof-firmware
-spectacle
 sudo
 syncthing
 texlive-bibtexextra
