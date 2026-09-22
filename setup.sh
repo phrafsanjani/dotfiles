@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 dir="$HOME/dotfiles"
 if [ ! -d "$dir" ]; then
     echo "FATAL: dotfiles directory '$dir' does not exist." >&2
