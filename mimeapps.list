@@ -1,0 +1,15 @@
+[Added Associations]
+application/pdf=com.microsoft.Edge.desktop;sioyek.desktop;firefox.desktop;
+application/x-ipynb+json=code.desktop;
+audio/mpeg=org.fooyin.fooyin.desktop;
+
+[Default Applications]
+application/pdf=com.microsoft.Edge.desktop;
+application/x-ipynb+json=code.desktop;
+text/html=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/readest=readest-handler.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+x-scheme-handler/throne=throne-url-handler.desktop
