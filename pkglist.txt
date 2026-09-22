@@ -34,6 +34,7 @@ imagemagick
 img2pdf
 intel-media-driver
 intel-ucode
+jq
 juliaup
 kate
 kde-gtk-config

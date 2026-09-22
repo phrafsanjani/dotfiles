@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 dir="$HOME/dotfiles"
 if [ ! -d "$dir" ]; then
     echo "FATAL: dotfiles directory '$dir' does not exist." >&2
@@ -158,6 +160,76 @@ setup_root_configs() {
     done
 }
 
+# Apply DarkMaterialShell Power Settings
+apply_dms_power() {
+    # --- Config ---
+    local dms_settings="$HOME/.config/DankMaterialShell/settings.json"
+    local power_json='{
+        "acSuspendTimeout": 300,
+        "batterySuspendTimeout": 300,
+        "batteryChargeLimit": 85,
+        "batteryNotifyLow": true,
+        "lockBeforeSuspend": true
+    }'
+
+    # --- 1. Check DMS is the current shell ---
+    if ! pgrep -x dms >/dev/null 2>&1; then
+        echo "DMS does not appear to be running. Aborting." >&2
+        return 1
+    fi
+
+    if [ ! -d "$HOME/.config/DankMaterialShell" ]; then
+        echo "DMS config directory not found at $HOME/.config/DankMaterialShell" >&2
+        return 1
+    fi
+
+    if ! command -v jq >/dev/null 2>&1; then
+        echo "jq is required but not installed. Install it and re-run." >&2
+        return 1
+    fi
+
+    # --- 2. Create settings.json if missing ---
+    if [ ! -f "$dms_settings" ]; then
+        echo "{}" > "$dms_settings"
+    fi
+
+    # --- 3. Early exit if all power values already match ---
+    if jq -e --argjson power "$power_json" '
+        . as $s
+        | ($power | to_entries | all(. as $e | $s[$e.key] == $e.value))
+    ' "$dms_settings" >/dev/null 2>&1; then
+        echo "All power settings already match. Nothing to do."
+        return 0
+    fi
+
+    # --- 4. Merge power keys, preserving everything else ---
+    local tmp
+    tmp=$(mktemp)
+    # shellcheck disable=SC2064
+    trap "rm -f '$tmp'" RETURN
+
+    if ! jq --argjson power "$power_json" '. * $power' "$dms_settings" > "$tmp"; then
+        echo "jq failed to process $dms_settings." >&2
+        return 1
+    fi
+
+    if ! jq empty "$tmp" >/dev/null 2>&1; then
+        echo "jq produced invalid JSON; leaving original file untouched." >&2
+        return 1
+    fi
+
+    mv "$tmp" "$dms_settings"
+    echo "Merged power settings into $dms_settings"
+
+    # --- 5. Restart DMS to apply ---
+    if ! dms restart; then
+        echo "Warning: failed to restart DMS. Settings written but not applied." >&2
+        return 1
+    fi
+    echo "DMS restarted."
+    return 0
+}
+
 setup_config "$HOME/.config/go/env" "go" "env"
 setup_config "$HOME/.config/nvim/init.lua" "nvim" "init.lua"
 setup_root_configs "/etc/pacman.d/hooks" "hooks"
@@ -169,3 +241,4 @@ setup_config "$HOME/.config/Code/User/settings.json" "." "code-settings.json"
 setup_config "$HOME/.config/fontconfig/fonts.conf" "." "fonts.conf"
 setup_root_configs "/etc/ssh/sshd_config.d" "sshd_config"
 setup_root_config "/etc/tsocks.conf" "." "tsocks.conf"
+apply_dms_power
