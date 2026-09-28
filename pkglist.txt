@@ -1,6 +1,7 @@
 ark
 base
 base-devel
+biber
 bluedevil
 bluez
 bluez-utils
