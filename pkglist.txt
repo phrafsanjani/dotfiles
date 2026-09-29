@@ -2,11 +2,9 @@ ark
 base
 base-devel
 biber
-bluedevil
 bluez
 bluez-utils
 brave-bin
-breeze-gtk
 brightnessctl
 calibre
 cantarell-fonts
@@ -39,11 +37,8 @@ intel-ucode
 jq
 juliaup
 kate
-kde-gtk-config
 kdeconnect
-kdeplasma-addons
 keepassxc
-kscreen
 less
 libayatana-appindicator
 linux
@@ -66,15 +61,8 @@ pdfarranger
 perl-image-exiftool
 pipewire-alsa
 pipewire-pulse
-plasma-browser-integration
-plasma-desktop
-plasma-firewall
-plasma-nm
-plasma-pa
 positron-ide-devel-bin
 power-profiles-daemon
-powerdevil
-print-manager
 python-pipx
 qt5-wayland
 r
@@ -113,7 +101,6 @@ vulkan-intel
 wget
 wl-clipboard
 xdg-desktop-portal-gnome
-xdg-desktop-portal-kde
 xorg-xwayland
 xwayland-satellite
 yay
