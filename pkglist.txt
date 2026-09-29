@@ -27,6 +27,7 @@ ghostty
 git
 git-filter-repo
 github-cli
+gnome-keyring
 grub
 grub-btrfs
 gsfonts
@@ -43,8 +44,6 @@ kdeconnect
 kdeplasma-addons
 keepassxc
 kscreen
-kwallet-pam
-kwalletmanager
 less
 libayatana-appindicator
 linux
