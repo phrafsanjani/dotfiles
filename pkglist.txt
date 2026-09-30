@@ -36,7 +36,6 @@ intel-media-driver
 intel-ucode
 jq
 juliaup
-kate
 kdeconnect
 keepassxc
 less
