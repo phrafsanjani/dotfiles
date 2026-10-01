@@ -29,6 +29,7 @@ gnome-keyring
 grub
 grub-btrfs
 gsfonts
+gvfs-mtp
 gwenview
 imagemagick
 img2pdf
