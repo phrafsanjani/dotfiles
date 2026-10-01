@@ -101,6 +101,7 @@ visual-studio-code-bin
 vlc
 vlc-plugins-all
 vulkan-intel
+waybar
 wget
 wl-clipboard
 xdg-desktop-portal-gnome
