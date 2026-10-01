@@ -14,6 +14,7 @@
     ],
     "modules-right": [
         "power-profiles-daemon",
+        "hyprland/language",
         "cpu",
         "memory",
         "wireplumber",
@@ -36,6 +37,12 @@
         "format": "{}",
         "max-length": 35,
         "separate-outputs": true
+    },
+
+    "hyprland/language": {
+    "format": " {}",
+    "format-en": "EN",
+    "format-ir": "FA"
     },
 
     "clock": {

@@ -86,3 +86,11 @@ window#waybar {
     color: #f7768e;
     padding-right: 12px;
 }
+
+#language {
+    padding: 0 10px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    background-color: #24283b;
+    color: #7aa2f7;
+}
