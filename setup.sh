@@ -229,6 +229,8 @@ apply_dms_power() {
 }
 
 setup_config "$HOME/.config/go/env" "go" "env"
+setup_config "$HOME/.config/hypr/hyprland.lua" "hypr" "hyprland.lua"
+setup_config "$HOME/.config/hypr/hypridle.conf" "hypr" "hypridle.conf"
 setup_config "$HOME/.config/waybar/config-gitlab.jsonc" "waybar" "config-gitlab.jsonc"
 setup_config "$HOME/.config/waybar/config.jsonc" "waybar" "config.jsonc"
 setup_config "$HOME/.config/waybar/style.css" "waybar" "style.css"
@@ -236,8 +238,6 @@ setup_config "$HOME/.config/nvim/init.lua" "nvim" "init.lua"
 setup_root_configs "/etc/pacman.d/hooks" "hooks"
 setup_root_config "/etc/pkglist.txt" "." "pkglist.txt"
 setup_config "$HOME/.config/niri/config.kdl" "." "niri-config.kdl"
-setup_config "$HOME/.config/hypr/hyprland.lua" "." "hyprland.lua"
-setup_config "$HOME/.config/hypr/hypridle.conf" "." "hypridle.conf"
 setup_config "$HOME/.config/ghostty/config.ghostty" "." "config.ghostty"
 setup_config "$HOME/.config/mimeapps.list" "." "mimeapps.list"
 setup_config "$HOME/.config/Code/User/settings.json" "." "code-settings.json"
