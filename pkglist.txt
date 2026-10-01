@@ -31,6 +31,9 @@ grub-btrfs
 gsfonts
 gvfs-mtp
 gwenview
+hypridle
+hyprland
+hyprlauncher
 imagemagick
 img2pdf
 intel-media-driver
