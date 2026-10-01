@@ -92,6 +92,7 @@ tsocks
 ttf-arphic-ukai
 ttf-arphic-uming
 ttf-dejavu
+ttf-font-awesome-5
 ttf-hack
 ttf-liberation
 ttf-opensans
