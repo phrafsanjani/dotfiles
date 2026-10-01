@@ -231,7 +231,6 @@ apply_dms_power() {
 setup_config "$HOME/.config/go/env" "go" "env"
 setup_config "$HOME/.config/hypr/hyprland.lua" "hypr" "hyprland.lua"
 setup_config "$HOME/.config/hypr/hypridle.conf" "hypr" "hypridle.conf"
-setup_config "$HOME/.config/waybar/config-gitlab.jsonc" "waybar" "config-gitlab.jsonc"
 setup_config "$HOME/.config/waybar/config.jsonc" "waybar" "config.jsonc"
 setup_config "$HOME/.config/waybar/style.css" "waybar" "style.css"
 setup_config "$HOME/.config/nvim/init.lua" "nvim" "init.lua"
