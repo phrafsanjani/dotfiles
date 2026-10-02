@@ -86,6 +86,7 @@ qt5-wayland
 r
 reflector
 rsync
+satty
 sddm
 sddm-kcm
 snapper
