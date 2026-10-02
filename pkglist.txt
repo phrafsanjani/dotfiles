@@ -10,10 +10,8 @@ breeze-gtk
 brightnessctl
 calibre
 cantarell-fonts
-cava
 cmake
 cups
-dms-shell-niri
 dolphin
 efibootmgr
 elisa
@@ -57,7 +55,6 @@ linux
 linux-firmware
 maplemono-ttf
 maplemononl-ttf
-matugen
 microsoft-edge-stable-bin
 mpv
 neovim
