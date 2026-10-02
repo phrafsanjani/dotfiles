@@ -35,8 +35,8 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "ghostty"
-local fileManager = "nemo"
+local terminal    = "konsole"
+local fileManager = "dolphin"
 local menu        = "hyprlauncher"
 
 
@@ -70,6 +70,7 @@ hl.on("hyprland.start", function ()
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("QT_QPA_PLATFORMTHEME", "kde")
 
 
 -----------------------
@@ -142,10 +143,6 @@ hl.config({
 
     animations = {
         enabled = true,
-    },
-
-    env = {
-        "QT_QPA_PLATFORMTHEME,qt6ct",
     },
 })
 

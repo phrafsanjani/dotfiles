@@ -21,7 +21,6 @@ fooyin
 fuse2
 fuzzel
 gcc-fortran
-ghostty
 git
 git-filter-repo
 github-cli
@@ -43,6 +42,7 @@ jq
 juliaup
 kdeconnect
 keepassxc
+konsole
 less
 libayatana-appindicator
 linux
@@ -52,7 +52,6 @@ maplemononl-ttf
 matugen
 microsoft-edge-stable-bin
 mpv
-nemo
 neovim
 networkmanager
 niri
@@ -67,6 +66,9 @@ pdfarranger
 perl-image-exiftool
 pipewire-alsa
 pipewire-pulse
+plasma-desktop
+plasma-nm
+plasma-pa
 positron-ide-devel-bin
 power-profiles-daemon
 python-pipx
