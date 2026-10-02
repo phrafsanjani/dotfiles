@@ -288,10 +288,10 @@ hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 
 -- Moving and swapping columns
-hl.bind(mainMod .. " + H",            hl.dsp.layout("move -col"))
-hl.bind(mainMod .. " + L",            hl.dsp.layout("move +col"))
-hl.bind(mainMod .. " + bracketright", hl.dsp.layout("swapcol r"))
-hl.bind(mainMod .. " + bracketleft",  hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + H",      hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + L",      hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + period", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + comma",  hl.dsp.layout("swapcol l"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
