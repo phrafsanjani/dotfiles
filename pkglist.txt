@@ -107,7 +107,6 @@ vulkan-intel
 waybar
 wget
 wl-clipboard
-xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xorg-xwayland
