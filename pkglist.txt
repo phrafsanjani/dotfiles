@@ -26,6 +26,7 @@ git
 git-filter-repo
 github-cli
 gnome-keyring
+gnome-themes-extra
 grub
 grub-btrfs
 gsfonts
@@ -51,6 +52,7 @@ maplemononl-ttf
 matugen
 microsoft-edge-stable-bin
 mpv
+nemo
 neovim
 networkmanager
 niri
@@ -106,6 +108,8 @@ waybar
 wget
 wl-clipboard
 xdg-desktop-portal-gnome
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-wlr
 xorg-xwayland
 xwayland-satellite
 yay
