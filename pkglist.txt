@@ -50,6 +50,7 @@ maplemono-ttf
 maplemononl-ttf
 matugen
 microsoft-edge-stable-bin
+mpv
 neovim
 networkmanager
 niri
@@ -99,7 +100,6 @@ ttf-opensans
 unrar
 vazirmatn-fonts
 visual-studio-code-bin
-vlc
 vlc-plugins-all
 vulkan-intel
 waybar
