@@ -37,7 +37,7 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = "konsole"
 local fileManager = "dolphin"
-local menu        = "hyprlauncher"
+local menu        = "fuzzel"
 
 
 -------------------
@@ -391,4 +391,12 @@ hl.layer_rule({
   name    = "no-anim-for-selection",
   match   = { namespace = "selection" },
   no_anim = true,
+})
+
+-- Hyprland Blur Rules for Fuzzel
+hl.config({
+    layerrule = {
+        "blur, fuzzel",
+        "ignorezero, fuzzel", -- Prevents transparent border clipping artifacts
+    },
 })

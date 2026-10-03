@@ -33,7 +33,6 @@ gvfs-mtp
 gwenview
 hypridle
 hyprland
-hyprlauncher
 hyprlock
 imagemagick
 img2pdf
