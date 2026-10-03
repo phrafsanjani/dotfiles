@@ -330,11 +330,11 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- Region / Selection screenshot with Satty
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | satty --filename - &'))
 
--- Fullscreen screenshot with Satty
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim - | satty --filename - &'))
-
 -- Selection directly to clipboard
-hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy &'))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy &'))
+
+-- Fullscreen screenshot with Satty
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd('grim - | satty --filename - &'))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
