@@ -63,6 +63,7 @@ niri
 noto-fonts-cjk
 noto-fonts-emoji
 openssh
+otf-font-awesome
 pacman-boot-backup-hook
 pacman-contrib
 pacman-log-orphans-hook
@@ -108,7 +109,6 @@ tsocks
 ttf-arphic-ukai
 ttf-arphic-uming
 ttf-dejavu
-ttf-font-awesome-5
 ttf-hack
 ttf-liberation
 ttf-opensans
