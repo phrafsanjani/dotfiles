@@ -19,8 +19,7 @@
         "memory",
         "wireplumber",
         "network",
-        "battery",
-        "custom/power"
+        "battery"
     ],
 
     // --- Modules Configuration ---
@@ -40,9 +39,9 @@
     },
 
     "hyprland/language": {
-    "format": " {}",
-    "format-en": "EN",
-    "format-ir": "FA"
+        "format": " {}",
+        "format-en": "EN",
+        "format-ir": "FA"
     },
 
     "clock": {
@@ -98,11 +97,5 @@
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-icons": ["", "", "", "", ""]
-    },
-
-    "custom/power": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "wlogout || systemctl poweroff"
     }
 }

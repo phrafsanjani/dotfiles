@@ -41,8 +41,7 @@ window#waybar {
 #memory,
 #wireplumber,
 #network,
-#battery,
-#custom-power {
+#battery {
     padding: 0 10px;
     margin: 3px 2px;
     border-radius: 6px;
@@ -81,11 +80,6 @@ window#waybar {
 #battery.critical:not(.charging) {
     background-color: #f7768e;
     color: #1a1b26;
-}
-
-#custom-power {
-    color: #f7768e;
-    padding-right: 12px;
 }
 
 #language {
