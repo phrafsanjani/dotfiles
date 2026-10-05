@@ -1,0 +1,101 @@
+/* Glassmorphic SwayNC Style */
+
+* {
+  font-family: "Font Awesome 6 Free", sans-serif;
+  font-weight: 900;
+}
+
+/* Base reset: prevents full-screen black rectangular render bugs */
+notificationwindow,
+blankwindow {
+  background: transparent;
+  background-color: transparent;
+}
+
+/* Control Center Main Panel */
+.control-center {
+  background: rgba(30, 30, 46, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  color: #cdd6f4;
+  padding: 16px;
+}
+
+/* Control Center Header & Title */
+.widget-title {
+  color: #cdd6f4;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.widget-title > button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cdd6f4;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 12px;
+}
+
+.widget-title > button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sliders & Cards (Volume, Backlight, Media, DND) */
+.widget-dnd,
+.widget-volume,
+.widget-backlight,
+.widget-mpris {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Quick Action Buttons Grid */
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cdd6f4;
+  padding: 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Standalone Notification Popups */
+.notification-row {
+  outline: none;
+  margin-bottom: 8px;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: transparent;
+}
+
+.notification {
+  background: rgba(30, 30, 46, 0.70);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  padding: 12px;
+}
+
+.notification-content {
+  color: #cdd6f4;
+}
+
+.summary {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.body {
+  font-size: 0.9rem;
+  color: #bac2de;
+}

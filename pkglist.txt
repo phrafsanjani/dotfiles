@@ -3,6 +3,7 @@ base
 base-devel
 biber
 bluedevil
+blueman
 bluez
 bluez-utils
 brave-bin
@@ -58,6 +59,7 @@ maplemononl-ttf
 microsoft-edge-stable-bin
 mpv
 neovim
+network-manager-applet
 networkmanager
 niri
 noto-fonts-cjk
@@ -93,6 +95,7 @@ snapper
 sof-firmware
 spectacle
 sudo
+swaync
 syncthing
 texlive-bibtexextra
 texlive-binextra

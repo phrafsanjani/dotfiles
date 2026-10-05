@@ -57,6 +57,7 @@ local menu        = "fuzzel"
 hl.on("hyprland.start", function () 
    hl.exec_cmd("hypridle")
    hl.exec_cmd("waybar")
+   hl.exec_cmd("swaync &")
    hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"')
    hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
  end)
@@ -90,7 +91,14 @@ hl.env("QT_QPA_PLATFORMTHEME", "kde")
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-
+hl.config({
+    windowrulev2 = {
+        "float, class:(hold_power.py)",
+        "center, class:(hold_power.py)",
+        "pin, class:(hold_power.py)",
+        "stayfocused, class:(hold_power.py)",
+    },
+})
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -336,6 +344,9 @@ hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy &
 -- Fullscreen screenshot with Satty
 hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd('grim - | satty --filename - &'))
 
+-- Keybinding to Toggle Control Center (Super + N)
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd('swaync-client -t -sw'))
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
@@ -393,10 +404,15 @@ hl.layer_rule({
   no_anim = true,
 })
 
--- Hyprland Blur Rules for Fuzzel
+-- Hyprland Blur Rules
 hl.config({
     layerrule = {
         "blur, fuzzel",
         "ignorezero, fuzzel", -- Prevents transparent border clipping artifacts
+        "blur, swaync-control-center",
+        "ignorezero, swaync-control-center",
+        "blur, swaync-notification-window",
+        "ignorealpha 0.5, swaync-notification-window",
+        "animation slide right, swaync-control-center",
     },
 })
