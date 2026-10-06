@@ -29,7 +29,26 @@
         "all-outputs": true,
         "active-only": false,
         "on-click": "activate",
-        "format": "{name}"
+        "format": "{name} {windows}",
+        "format-window-separator": " ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "title<.*youtube.*>": "",
+            "class<firefox>": "",
+            "class<Google-chrome|chromium>": "",
+            "class<brave-browser|Brave-browser>": "🦁",
+            "class<msedge|microsoft-edge.*>": "",
+            "class<kitty|alacritty|foot|ghostty|konsole|org.kde.konsole>": "",
+            "class<code|Code|vscodium>": "",
+            "class<discord|vesktop>": "",
+            "class<spotify>": "",
+            "class<thunar|nemo|dolphin|org.gnome.Nautilus>": "📂",
+            "class<vlc|mpv>": "",
+            "class<org.pwmt.zathura>": "",
+            "class<calibre-gui|calibre>": "📖",
+            "class<kdeconnect.*|org.kde.kdeconnect.*>": "📱",
+            "class<throne|Throne>": "👑"
+        }
     },
 
     "hyprland/window": {
