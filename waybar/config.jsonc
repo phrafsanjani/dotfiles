@@ -42,6 +42,7 @@
             "class<msedge|microsoft-edge.*>": "",
             "class<kitty|alacritty|foot|ghostty|konsole|org.kde.konsole>": "",
             "class<code|Code|vscodium>": "",
+            "class<positron|Positron|com.posit.Positron>": "⚛",
             "class<discord|vesktop>": "",
             "class<org.telegram.desktop|telegram-desktop|TelegramDesktop>": "",
             "class<spotify>": "",
