@@ -35,7 +35,7 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "konsole"
+local terminal    = "ghostty"
 local fileManager = "dolphin"
 local menu        = "fuzzel"
 
