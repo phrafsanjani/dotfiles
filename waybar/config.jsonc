@@ -34,6 +34,8 @@
         "window-rewrite-default": "",
         "window-rewrite": {
             "title<.*youtube.*>": "",
+            "title<.*WhatsApp.*>|class<.*whatsapp.*>": "",
+            "title<.*Instagram.*>|class<.*instagram.*>": "",
             "class<firefox>": "",
             "class<Google-chrome|chromium>": "",
             "class<brave-browser|Brave-browser>": "🦁",
@@ -41,6 +43,7 @@
             "class<kitty|alacritty|foot|ghostty|konsole|org.kde.konsole>": "",
             "class<code|Code|vscodium>": "",
             "class<discord|vesktop>": "",
+            "class<org.telegram.desktop|telegram-desktop|TelegramDesktop>": "",
             "class<spotify>": "",
             "class<thunar|nemo|dolphin|org.gnome.Nautilus>": "📂",
             "class<vlc|mpv>": "",
