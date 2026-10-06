@@ -47,7 +47,8 @@
             "class<org.pwmt.zathura>": "",
             "class<calibre-gui|calibre>": "📖",
             "class<kdeconnect.*|org.kde.kdeconnect.*>": "📱",
-            "class<throne|Throne>": "👑"
+            "class<throne|Throne>": "👑",
+            "class<gwenview|org.kde.gwenview|eog|org.gnome.eog>": "🖼"
         }
     },
 
