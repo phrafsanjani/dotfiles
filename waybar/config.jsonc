@@ -46,6 +46,8 @@
             "class<discord|vesktop>": "",
             "class<org.telegram.desktop|telegram-desktop|TelegramDesktop>": "",
             "class<spotify>": "",
+            "class<elisa|org.kde.elisa>": "🎵",
+            "class<org.keepassxc.KeePassXC|keepassxc|KeePassXC>": "🔑",
             "class<thunar|nemo|dolphin|org.gnome.Nautilus>": "📂",
             "class<vlc|mpv>": "",
             "class<org.pwmt.zathura>": "",
