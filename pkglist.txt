@@ -118,7 +118,6 @@ ttf-opensans
 unrar
 vazirmatn-fonts
 visual-studio-code-bin
-vlc-plugins-all
 vulkan-intel
 waybar
 wget
