@@ -1,5 +1,4 @@
 ark
-audacious
 base
 base-devel
 biber
@@ -97,6 +96,7 @@ spectacle
 sudo
 swaync
 syncthing
+tauon-music-box
 texlive-bibtexextra
 texlive-binextra
 texlive-fontsextra

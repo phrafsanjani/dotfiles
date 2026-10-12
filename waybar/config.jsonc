@@ -46,7 +46,7 @@
             "class<discord|vesktop>": "",
             "class<org.telegram.desktop|telegram-desktop|TelegramDesktop>": "",
             "class<spotify>": "",
-            "class<audacious|Audacious|org.atheme.audacious>": "📻",
+            "class<tauon|Tauon|tauonmb>": "🎵",
             "class<org.keepassxc.KeePassXC|keepassxc|KeePassXC>": "🔑",
             "class<thunar|nemo|dolphin|org.gnome.Nautilus>": "📂",
             "class<vlc|mpv>": "",
