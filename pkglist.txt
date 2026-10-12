@@ -1,4 +1,5 @@
 ark
+audacious
 base
 base-devel
 biber
@@ -15,7 +16,6 @@ cmake
 cups
 dolphin
 efibootmgr
-elisa
 ffmpegthumbs
 firefox
 firewalld
