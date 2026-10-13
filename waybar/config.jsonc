@@ -33,7 +33,7 @@
         "format-window-separator": " ",
         "window-rewrite-default": "",
         "window-rewrite": {
-            "title<.*youtube.*>": "",
+            "class<^(firefox|Google-chrome|chromium|brave-browser|Brave-browser|msedge|microsoft-edge.*)$> title<.* - YouTube$|^YouTube$>": "",
             "title<.*WhatsApp.*>|class<.*whatsapp.*>": "",
             "title<.*Instagram.*>|class<.*instagram.*>": "",
             "class<firefox>": "",
@@ -41,7 +41,7 @@
             "class<brave-browser|Brave-browser>": "🦁",
             "class<msedge|microsoft-edge.*>": "",
             "class<kitty|alacritty|foot|ghostty|konsole|org.kde.konsole>": "",
-            "class<code|Code|vscodium>": "",
+            "class<com\\.microsoft\\.VSCode>": "",
             "class<positron|Positron|com.posit.Positron>": "⚛",
             "class<discord|vesktop>": "",
             "class<org.telegram.desktop|telegram-desktop|TelegramDesktop>": "",
