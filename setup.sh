@@ -59,6 +59,9 @@ setup_config() {
     local backup_config_path="$olddir/$dotfiles_config_dir/$dotfiles_config_file"
     local dotfiles_config_path="$dir/$dotfiles_config_dir/$dotfiles_config_file"
     backup_config "$user_config_path" "$backup_config_path"
+
+    mkdir -p "$(dirname "$user_config_path")"
+
     echo "Creating symlink to $dotfiles_config_path"
     ln -s "$dotfiles_config_path" "$user_config_path"
 }
@@ -163,12 +166,7 @@ setup_config "$HOME/.config/hypr/hyprland.lua" "hypr" "hyprland.lua"
 setup_config "$HOME/.config/hypr/hypridle.conf" "hypr" "hypridle.conf"
 setup_config "$HOME/.config/hypr/hyprlock.conf" "hypr" "hyprlock.conf"
 setup_config "$HOME/.config/fuzzel/fuzzel.ini" "fuzzel" "fuzzel.ini"
-setup_config "$HOME/.config/hypr/scripts/hold_power.py" "hypr/scripts" "hold_power.py"
-chmod +x "$HOME/.config/hypr/scripts/hold_power.py"
-setup_config "$HOME/.config/swaync/config.json" "swaync" "config.json"
-setup_config "$HOME/.config/swaync/style.css" "swaync" "style.css"
-setup_config "$HOME/.config/waybar/config.jsonc" "waybar" "config.jsonc"
-setup_config "$HOME/.config/waybar/style.css" "waybar" "style.css"
+setup_config "$HOME/.config/ashell/config.toml" "ashell" "config.toml"
 setup_config "$HOME/.config/mpv/input.conf" "mpv" "input.conf"
 setup_config "$HOME/.config/mpv/mpv.conf" "mpv" "mpv.conf"
 setup_config "$HOME/.config/nvim/init.lua" "nvim" "init.lua"

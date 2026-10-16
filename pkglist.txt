@@ -1,4 +1,5 @@
 ark
+ashell
 base
 base-devel
 biber
@@ -11,6 +12,7 @@ breeze-gtk
 brightnessctl
 calibre
 cantarell-fonts
+cava
 cmake
 cups
 dolphin
@@ -95,7 +97,6 @@ snapper
 sof-firmware
 spectacle
 sudo
-swaync
 syncthing
 tauon-music-box
 texlive-bibtexextra
@@ -120,7 +121,6 @@ unrar
 vazirmatn-fonts
 visual-studio-code-bin
 vulkan-intel
-waybar
 wget
 wl-clipboard
 xdg-desktop-portal-hyprland

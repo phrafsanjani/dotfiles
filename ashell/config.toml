@@ -1,0 +1,29 @@
+[modules]
+left = [ [ "appLauncher", "Updates", "Workspaces" ] ]
+center = [ "WindowTitle", "Tempo" ]
+right = [ "MediaPlayer", [ "Tray", "KeyboardLayout", "SystemInfo", "Privacy", "Settings" ] ]
+
+[appearance]
+scale_factor = 1.2
+
+[workspaces]
+indicator_format = "NameAndIcons"
+
+[keyboard_layout.labels]
+"English (US)" = "🇺🇸"
+"Persian" = "🇮🇷"
+
+[notifications]
+show_timestamps = true
+show_bodies = false
+grouped = true
+toast = true
+toast_position = "TopRight"
+toast_timeout = 4000
+toast_limit = 5
+toast_max_height = 150
+blocklist = ["blueman", "^org\\.gnome\\."]
+
+[media_player]
+indicator_visualizer = "Background"
+menu_visualizer = true

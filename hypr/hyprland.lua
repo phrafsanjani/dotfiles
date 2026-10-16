@@ -56,8 +56,7 @@ local menu        = "fuzzel"
 -- end)
 hl.on("hyprland.start", function () 
    hl.exec_cmd("hypridle")
-   hl.exec_cmd("waybar")
-   hl.exec_cmd("swaync &")
+   hl.exec_cmd("ashell")
    hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"')
    hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
  end)
@@ -344,9 +343,6 @@ hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy &
 -- Fullscreen screenshot with Satty
 hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd('grim - | satty --filename - &'))
 
--- Keybinding to Toggle Control Center (Super + N)
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd('swaync-client -t -sw'))
-
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
@@ -409,10 +405,5 @@ hl.config({
     layerrule = {
         "blur, fuzzel",
         "ignorezero, fuzzel", -- Prevents transparent border clipping artifacts
-        "blur, swaync-control-center",
-        "ignorezero, swaync-control-center",
-        "blur, swaync-notification-window",
-        "ignorealpha 0.5, swaync-notification-window",
-        "animation slide right, swaync-control-center",
     },
 })
