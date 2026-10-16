@@ -1,6 +1,6 @@
 [modules]
 left = [ [ "appLauncher", "Updates", "Workspaces" ] ]
-center = [ "WindowTitle", "Tempo" ]
+center = [ "WindowTitle", "Tempo", "Notifications" ]
 right = [ "MediaPlayer", [ "Tray", "KeyboardLayout", "SystemInfo", "Privacy", "Settings" ] ]
 
 [appearance]
