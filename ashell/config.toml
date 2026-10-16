@@ -25,5 +25,6 @@ toast_max_height = 150
 blocklist = ["blueman", "^org\\.gnome\\."]
 
 [media_player]
+max_text_length = 35
 indicator_visualizer = "Background"
 menu_visualizer = true
