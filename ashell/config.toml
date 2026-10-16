@@ -4,10 +4,14 @@ center = [ "WindowTitle", "Tempo" ]
 right = [ "MediaPlayer", [ "Tray", "KeyboardLayout", "SystemInfo", "Privacy", "Settings" ] ]
 
 [appearance]
-scale_factor = 1.2
+scale_factor = 1.15
 
 [workspaces]
 indicator_format = "NameAndIcons"
+
+[window_title]
+mode = "Title"
+truncate_title_after_length = 32
 
 [keyboard_layout.labels]
 "English (US)" = "🇺🇸"
@@ -25,6 +29,6 @@ toast_max_height = 150
 blocklist = ["blueman", "^org\\.gnome\\."]
 
 [media_player]
-max_text_length = 35
+max_text_length = 32
 indicator_visualizer = "Background"
 menu_visualizer = true
