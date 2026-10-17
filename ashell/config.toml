@@ -11,11 +11,14 @@ indicator_format = "NameAndIcons"
 
 [window_title]
 mode = "Title"
-truncate_title_after_length = 32
+truncate_title_after_length = 20
 
 [keyboard_layout.labels]
 "English (US)" = "🇺🇸"
 "Persian" = "🇮🇷"
+
+[system_info.temperature]
+units = "Celsius"
 
 [notifications]
 show_timestamps = true
@@ -29,6 +32,6 @@ toast_max_height = 150
 blocklist = ["blueman", "^org\\.gnome\\."]
 
 [media_player]
-max_text_length = 32
+max_text_length = 20
 indicator_visualizer = "Background"
 menu_visualizer = true
