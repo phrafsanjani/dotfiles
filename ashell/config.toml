@@ -1,7 +1,7 @@
 [modules]
 left = [ [ "appLauncher", "Updates", "Workspaces" ] ]
-center = [ "WindowTitle", "Tempo", "Notifications" ]
-right = [ "MediaPlayer", [ "Tray", "KeyboardLayout", "SystemInfo", "Privacy", "Settings" ] ]
+center = [ "WindowTitle" ]
+right = [ "MediaPlayer", [ "Tray", "KeyboardLayout", "SystemInfo", "Notifications", "Tempo", "Privacy", "Settings" ] ]
 
 [appearance]
 scale_factor = 1.15
