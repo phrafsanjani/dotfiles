@@ -46,7 +46,6 @@ linux
 linux-firmware
 maplemono-ttf
 maplemononl-ttf
-microsoft-edge-stable-bin
 mpv
 mpv-mpris
 neovim
