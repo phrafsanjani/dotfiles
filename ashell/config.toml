@@ -11,7 +11,7 @@ indicator_format = "NameAndIcons"
 
 [window_title]
 mode = "Title"
-truncate_title_after_length = 20
+truncate_title_after_length = 0
 
 [keyboard_layout.labels]
 "English (US)" = "🇺🇸"
@@ -32,6 +32,6 @@ toast_max_height = 150
 blocklist = ["blueman", "^org\\.gnome\\."]
 
 [media_player]
-max_text_length = 20
+max_text_length = 35
 indicator_visualizer = "Background"
 menu_visualizer = true
