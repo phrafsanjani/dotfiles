@@ -1,3 +1,4 @@
+7zip
 ashell
 base
 base-devel
@@ -11,12 +12,13 @@ calibre
 cantarell-fonts
 cava
 cmake
-dolphin
 efibootmgr
+fd
 firefox
 firewalld
 fuse2
 fuzzel
+fzf
 gcc-fortran
 ghostty
 git
@@ -107,8 +109,10 @@ xdg-desktop-portal-wlr
 xorg-xwayland
 xwayland-satellite
 yay
+yazi
 yt-dlp
 zotero-bin
+zoxide
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
