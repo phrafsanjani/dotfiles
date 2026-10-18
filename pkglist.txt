@@ -67,6 +67,7 @@ perl-image-exiftool
 pipewire-alsa
 pipewire-pulse
 positron-ide-devel-bin
+power-profiles-daemon
 python-pipx
 qt5-wayland
 r
