@@ -30,12 +30,12 @@ grub
 grub-btrfs
 gsfonts
 gvfs-mtp
-gwenview
 hypridle
 hyprland
 hyprlock
 imagemagick
 img2pdf
+imv
 intel-media-driver
 intel-ucode
 jq
