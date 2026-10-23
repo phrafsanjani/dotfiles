@@ -1,5 +1,5 @@
 [Added Associations]
-application/pdf=firefox.desktop;
+application/pdf=microsoft-edge.desktop;
 application/x-ipynb+json=code.desktop;
 audio/mpeg=tauonmb.desktop;
 audio/flac=tauonmb.desktop;
@@ -18,7 +18,7 @@ image/avif=imv.desktop;
 image/heif=imv.desktop;
 
 [Default Applications]
-application/pdf=firefox.desktop;
+application/pdf=microsoft-edge.desktop;
 application/x-ipynb+json=code.desktop;
 text/html=brave-browser.desktop;
 x-scheme-handler/about=brave-browser.desktop;
