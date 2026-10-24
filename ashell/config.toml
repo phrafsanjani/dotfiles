@@ -9,10 +9,6 @@ scale_factor = 1.15
 [workspaces]
 indicator_format = "NameAndIcons"
 
-[window_title]
-mode = "Title"
-truncate_title_after_length = 0
-
 [keyboard_layout.labels]
 "English (US)" = "🇺🇸"
 "Persian" = "🇮🇷"
