@@ -55,7 +55,6 @@ mpv-mpris
 neovim
 network-manager-applet
 networkmanager
-niri
 noto-fonts-cjk
 noto-fonts-emoji
 openssh
@@ -110,7 +109,6 @@ wl-clipboard
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xorg-xwayland
-xwayland-satellite
 yay
 yazi
 yt-dlp
