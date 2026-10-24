@@ -186,6 +186,19 @@ function y() {
 	command rm -f -- "$tmp"
 }
 
+# mounting phone (MTP)
+function mount-phone() {
+    mkdir -p /run/user/$(id -u)/phone
+    aft-mtp-mount /run/user/$(id -u)/phone
+    cd /run/user/$(id -u)/phone
+    y
+}
+
+# mounting phone (MTP)
+function unmount-phone() {
+    fusermount -u /run/user/$(id -u)/phone
+}
+
 export PATH=$PATH:~/.local/bin
 export PATH=/opt/jdk-21.0.2+13/bin:$PATH
 
