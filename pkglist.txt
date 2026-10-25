@@ -1,5 +1,4 @@
 7zip
-android-file-transfer
 ashell
 base
 base-devel

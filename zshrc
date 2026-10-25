@@ -186,17 +186,82 @@ function y() {
 	command rm -f -- "$tmp"
 }
 
-# mounting phone (MTP)
+# mounting phone (MTP via gio with interactive prompt)
 function mount-phone() {
-    mkdir -p /run/user/$(id -u)/phone
-    aft-mtp-mount /run/user/$(id -u)/phone
-    cd /run/user/$(id -u)/phone
-    y
+    # Find all MTP URIs and labels
+    local lines
+    lines=($(gio mount -li | grep -E "mtp://|volume( name)?:"))
+
+    # Extract URIs into an array
+    local uris=($(gio mount -li | grep -oP "mtp://[^\s]+"))
+
+    if [ ${#uris[@]} -eq 0 ]; then
+        echo "Error: No MTP devices found. Make sure your phone is unlocked and set to File Transfer mode."
+        return 1
+    fi
+
+    # If multiple devices are found, prompt the user to choose
+    local selected_uri
+    if [ ${#uris[@]} -eq 1 ]; then
+        selected_uri="${uris[1]}"
+        echo "Found device: $selected_uri"
+    else
+        echo "Multiple MTP devices found:"
+        select selected_uri in "${uris[@]}"; do
+            if [ -n "$selected_uri" ]; then
+                break
+            else
+                echo "Invalid selection. Please try again."
+            fi
+        done
+    fi
+
+    echo "Mounting $selected_uri..."
+    gio mount "$selected_uri"
+
+    # GVfs mounts typically map under /run/user/$(id -u)/gvfs/
+    local mount_path="/run/user/$(id -u)/gvfs/$(echo "$selected_uri" | sed 's|://|:|g' | sed 's|/||g')"
+    
+    # Fallback search if the path format varies
+    if [ ! -d "$mount_path" ]; then
+        mount_path=$(ls -d /run/user/$(id -u)/gvfs/mtp* 2>/dev/null | head -n 1)
+    fi
+
+    if [ -d "$mount_path" ]; then
+        cd "$mount_path"
+        y
+    else
+        echo "Error: Could not locate the mounted directory."
+        return 1
+    fi
 }
 
-# mounting phone (MTP)
+# unmounting phone (MTP via gio with interactive prompt)
 function unmount-phone() {
-    fusermount -u /run/user/$(id -u)/phone
+    local uris=($(gio mount -li | grep -oP "mtp://[^\s]+"))
+
+    if [ ${#uris[@]} -eq 0 ]; then
+        echo "No active MTP devices found."
+        return 1
+    fi
+
+    local selected_uri
+    if [ ${#uris[@]} -eq 1 ]; then
+        selected_uri="${uris[1]}"
+        echo "Unmounting $selected_uri..."
+    else
+        echo "Select the device to unmount:"
+        select selected_uri in "${uris[@]}"; do
+            if [ -n "$selected_uri" ]; then
+                break
+            else
+                echo "Invalid selection. Please try again."
+            fi
+        done
+    fi
+
+    gio mount -u "$selected_uri"
+    echo "Successfully unmounted $selected_uri."
 }
 
 export PATH=$PATH:~/.local/bin
