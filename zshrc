@@ -1,4 +1,4 @@
-source $HOME/dotfiles/.env
+[ -f $HOME/dotfiles/.env ] && source $HOME/dotfiles/.env
 
 # Prompt
 NEWLINE=$'\n'
@@ -88,7 +88,7 @@ hdd-sync() {
 
         BACKUP_DIR="GitHub"
         mkdir -p "$BACKUP_DIR"
-        cd "$BACKUP_DIR" || exit
+        cd "$BACKUP_DIR" || return 1
 
         echo "🎯 Starting GitHub Backup..."
 
@@ -154,7 +154,7 @@ hdd-sync() {
         # ---------------------------------------------------------------------
         # 4. PERSONAL GISTS
         # ---------------------------------------------------------------------
-        echo "\n📝 4. Fetching personal Gists..."
+        echo "\n📝 3. Fetching personal Gists..."
         gists=$(gh api gists --paginate --jq '.[].id')
 
         for gist in ${(f)gists}; do
@@ -168,9 +168,12 @@ hdd-sync() {
         done
 
         echo "\n🎉 All assets synced successfully inside: $BACKUP_DIR"
-        fi
+
+        # Stop the ssh-agent started above
+        eval $(ssh-agent -k) > /dev/null
 
         cd ..
+    fi
 }
 
 # download best-quality mp4 video from YouTube
@@ -188,12 +191,8 @@ function y() {
 
 # mounting phone (MTP via gio with interactive prompt)
 function mount-phone() {
-    # Find all MTP URIs and labels
-    local lines
-    lines=($(gio mount -li | grep -E "mtp://|volume( name)?:"))
-
-    # Extract URIs into an array
-    local uris=($(gio mount -li | grep -oP "mtp://[^\s]+"))
+    # Extract unique MTP URIs into an array
+    local uris=(${(u)$(gio mount -li | grep -oP "mtp://[^\s]+")})
 
     if [ ${#uris[@]} -eq 0 ]; then
         echo "Error: No MTP devices found. Make sure your phone is unlocked and set to File Transfer mode."
@@ -219,8 +218,9 @@ function mount-phone() {
     echo "Mounting $selected_uri..."
     gio mount "$selected_uri"
 
-    # GVfs mounts typically map under /run/user/$(id -u)/gvfs/
-    local mount_path="/run/user/$(id -u)/gvfs/$(echo "$selected_uri" | sed 's|://|:|g' | sed 's|/||g')"
+    # GVfs mounts mtp://<host>/ under /run/user/$(id -u)/gvfs/mtp:host=<host>
+    local host="${${selected_uri#mtp://}%%/*}"
+    local mount_path="/run/user/$(id -u)/gvfs/mtp:host=$host"
     
     # Fallback search if the path format varies
     if [ ! -d "$mount_path" ]; then
@@ -238,7 +238,7 @@ function mount-phone() {
 
 # unmounting phone (MTP via gio with interactive prompt)
 function unmount-phone() {
-    local uris=($(gio mount -li | grep -oP "mtp://[^\s]+"))
+    local uris=(${(u)$(gio mount -li | grep -oP "mtp://[^\s]+")})
 
     if [ ${#uris[@]} -eq 0 ]; then
         echo "No active MTP devices found."
@@ -260,8 +260,7 @@ function unmount-phone() {
         done
     fi
 
-    gio mount -u "$selected_uri"
-    echo "Successfully unmounted $selected_uri."
+    gio mount -u "$selected_uri" && echo "Successfully unmounted $selected_uri."
 }
 
 export PATH=$PATH:~/.local/bin
