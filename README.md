@@ -14,7 +14,7 @@ My personal dotfiles for Arch Linux, managed with Git for easy setup and synchro
 
 1. Clone this repository to your home directory:
 ```bash
-$ git clone https://github.com/parasilius/dotfiles.git ~/dotfiles
+$ git clone https://github.com/phrafsanjani/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
 ```
 2. Run the setup script:
