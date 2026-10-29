@@ -38,5 +38,3 @@ update_cmd = 'ghostty -e bash -c "yay; echo Done - Press enter to exit; read" &'
 
 [settings]
 lock_cmd = "loginctl lock-session"
-shutdown_cmd = "~/.config/hypr/scripts/hold_power.py power"
-reboot_cmd = "~/.config/hypr/scripts/hold_power.py reboot"
