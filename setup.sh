@@ -10,8 +10,8 @@ olddir="$dir/.dotfiles_old"      # old dotfiles backup directory
 if [ -d "$olddir" ]; then
     echo "Directory '$olddir' already exists - continuing..."
 else
-    echo -n "Creating $olddir"
-    mkdir -p $olddir
+    echo "Creating $olddir"
+    mkdir -p "$olddir"
 fi
 
 backup_config() {
@@ -19,29 +19,39 @@ backup_config() {
     backup_config_path=$2
     if [ -f "$user_config_path" ]; then
         if cmp -s "$user_config_path" "$backup_config_path"; then
-            if [ ! -L "$user_config_path" ]; then
-                echo "Removing $user_config_path"
-                rm $user_config_path
-            fi
             echo "$user_config_path and $backup_config_path are identical - continuing..."
+            echo "Removing $user_config_path"
+            rm "$user_config_path"
         else
             if [ -f "$backup_config_path" ]; then
                 echo "Moving previous $backup_config_path to $backup_config_path.old"
                 mv "$backup_config_path" "$backup_config_path.old"
             fi
             echo "Writing $user_config_path contents to $backup_config_path"
-            mkdir -p "$(dirname "$backup_config_path")" && cat $user_config_path > $backup_config_path
+            mkdir -p "$(dirname "$backup_config_path")" && cat "$user_config_path" > "$backup_config_path"
             echo "Removing $user_config_path"
-            rm $user_config_path
+            rm "$user_config_path"
         fi
+    elif [ -L "$user_config_path" ]; then
+        echo "Removing dangling symlink $user_config_path"
+        rm "$user_config_path"
     fi
+}
+
+# Returns success if $1 is already a symlink pointing to $2
+is_linked() {
+    [ -L "$1" ] && [ "$(readlink "$1")" = "$2" ]
 }
 
 home_files="zshrc"
 for file in $home_files; do
+    if is_linked "$HOME/.$file" "$dir/$file"; then
+        echo "$HOME/.$file already links to $dir/$file - continuing..."
+        continue
+    fi
     backup_config "$HOME/.$file" "$olddir/$file"
     echo "Creating symlink to $dir/$file in home directory."
-    ln -s $dir/$file $HOME/.$file
+    ln -s "$dir/$file" "$HOME/.$file"
 done
 
 setup_config() {
@@ -58,6 +68,10 @@ setup_config() {
 
     local backup_config_path="$olddir/$dotfiles_config_dir/$dotfiles_config_file"
     local dotfiles_config_path="$dir/$dotfiles_config_dir/$dotfiles_config_file"
+    if is_linked "$user_config_path" "$dotfiles_config_path"; then
+        echo "$user_config_path already links to $dotfiles_config_path - continuing..."
+        return 0
+    fi
     backup_config "$user_config_path" "$backup_config_path"
 
     mkdir -p "$(dirname "$user_config_path")"
@@ -84,10 +98,15 @@ setup_configs() {
         local user_config_path="$user_configs_dir/$config"
         local dotfiles_config_path="$dotfiles_configs_dir/$config"
         local backup_config_path="$backup_configs_dir/$config"
+        if is_linked "$user_config_path" "$dotfiles_config_path"; then
+            echo "$user_config_path already links to $dotfiles_config_path - continuing..."
+            continue
+        fi
         backup_config "$user_config_path" "$backup_config_path"
+        mkdir -p "$user_configs_dir"
+        echo "Creating symlink to $dotfiles_config_path"
+        ln -s "$dotfiles_config_path" "$user_config_path"
     done
-    echo "Creating symlink to $dotfiles_configs_dir"
-    ln -s "$dotfiles_configs_dir/*" "$user_configs_dir"
 }
 
 setup_root_config() {
@@ -104,12 +123,16 @@ setup_root_config() {
 
     local backup_config_path="$olddir/$dotfiles_config_dir/$dotfiles_config_file"
     local dotfiles_config_path="$dir/$dotfiles_config_dir/$dotfiles_config_file"
+    if cmp -s "$user_config_path" "$dotfiles_config_path"; then
+        echo "$user_config_path is up to date - continuing..."
+        return 0
+    fi
     if [ -f "$user_config_path" ]; then
         if cmp -s "$user_config_path" "$backup_config_path"; then
             echo "$user_config_path and $backup_config_path are identical - continuing..."
         else
             echo "Backing up existing $user_config_path to $olddir"
-            mkdir -p "$olddir/$dotfiles_configs_dir"
+            mkdir -p "$(dirname "$backup_config_path")"
             if [ -f "$user_config_path" ]; then
                 if [ -f "$backup_config_path" ]; then
                     echo "Moving previous $backup_config_path to $backup_config_path.old"
@@ -141,6 +164,10 @@ setup_root_configs() {
         local user_config_path="$user_configs_dir/$config"
         local dotfiles_config_path="$dotfiles_configs_dir/$config"
         local backup_config_path="$backup_configs_dir/$config"
+        if cmp -s "$user_config_path" "$dotfiles_config_path"; then
+            echo "$user_config_path is up to date - continuing..."
+            continue
+        fi
         if [ -f "$user_config_path" ]; then
             if cmp -s "$user_config_path" "$backup_config_path"; then
                 echo "$user_config_path and $backup_config_path are identical - continuing..."
@@ -157,6 +184,7 @@ setup_root_configs() {
             fi
         fi
         echo "Copying $dotfiles_config_path to $user_configs_dir"
+        sudo mkdir -p "$user_configs_dir"
         sudo cp "$dotfiles_config_path" "$user_configs_dir"
     done
 }
@@ -165,6 +193,8 @@ setup_config "$HOME/.config/go/env" "go" "env"
 setup_config "$HOME/.config/hypr/hyprland.lua" "hypr" "hyprland.lua"
 setup_config "$HOME/.config/hypr/hypridle.conf" "hypr" "hypridle.conf"
 setup_config "$HOME/.config/hypr/hyprlock.conf" "hypr" "hyprlock.conf"
+setup_config "$HOME/.config/hypr/scripts/hold_power.py" "hypr/scripts" "hold_power.py"
+chmod +x "$dir/hypr/scripts/hold_power.py"
 setup_config "$HOME/.config/fuzzel/fuzzel.ini" "fuzzel" "fuzzel.ini"
 setup_config "$HOME/.config/ashell/config.toml" "ashell" "config.toml"
 setup_config "$HOME/.config/mpv/input.conf" "mpv" "input.conf"
@@ -175,7 +205,6 @@ setup_config "$HOME/.config/yazi/init.lua" "yazi" "init.lua"
 setup_config "$HOME/.config/yazi/keymap.toml" "yazi" "keymap.toml"
 setup_root_configs "/etc/pacman.d/hooks" "hooks"
 setup_root_config "/etc/pkglist.txt" "." "pkglist.txt"
-setup_config "$HOME/.config/niri/config.kdl" "." "niri-config.kdl"
 setup_config "$HOME/.config/ghostty/config.ghostty" "ghostty" "config.ghostty"
 setup_config "$HOME/.config/mimeapps.list" "." "mimeapps.list"
 setup_config "$HOME/.config/microsoft-edge-stable-flags.conf" "." "microsoft-edge-stable-flags.conf"

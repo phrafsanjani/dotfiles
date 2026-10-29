@@ -89,13 +89,14 @@ hl.env("QT_QPA_PLATFORMTHEME", "kde")
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-hl.config({
-    windowrulev2 = {
-        "float, class:(hold_power.py)",
-        "center, class:(hold_power.py)",
-        "pin, class:(hold_power.py)",
-        "stayfocused, class:(hold_power.py)",
-    },
+hl.window_rule({
+    name  = "hold-power-dialog",
+    match = { class = "^hold_power\\.py$" },
+
+    float        = true,
+    center       = true,
+    pin          = true,
+    stay_focused = true,
 })
 
 -----------------------
@@ -279,6 +280,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("loginctl lock-session")) -- handled by hypridle's lock_cmd
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("ghostty -e yazi"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
@@ -401,9 +403,10 @@ hl.layer_rule({
 })
 
 -- Hyprland Blur Rules
-hl.config({
-    layerrule = {
-        "blur, fuzzel",
-        "ignorezero, fuzzel", -- Prevents transparent border clipping artifacts
-    },
+hl.layer_rule({
+    name  = "blur-fuzzel",
+    match = { namespace = "^fuzzel$" },
+
+    blur         = true,
+    ignore_alpha = 0, -- Prevents transparent border clipping artifacts
 })

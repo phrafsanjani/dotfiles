@@ -31,3 +31,12 @@ blocklist = ["blueman", "^org\\.gnome\\."]
 max_text_length = 35
 indicator_visualizer = "Background"
 menu_visualizer = true
+
+[updates]
+check_cmd = "checkupdates; yay -Qua"
+update_cmd = 'ghostty -e bash -c "yay; echo Done - Press enter to exit; read" &'
+
+[settings]
+lock_cmd = "loginctl lock-session"
+shutdown_cmd = "~/.config/hypr/scripts/hold_power.py power"
+reboot_cmd = "~/.config/hypr/scripts/hold_power.py reboot"
