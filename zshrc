@@ -1,5 +1,3 @@
-[ -f $HOME/dotfiles/.env ] && source $HOME/dotfiles/.env
-
 # Prompt
 NEWLINE=$'\n'
 PROMPT="%B%F{green}╭─%f%b[%B%F{cyan}%n%f%b%B%F{white}@%f%b%B%F{magenta}%m%f%b %B%F{blue}%~%f%b]${NEWLINE}%B%F{green}╰─%f%b%B%F{red}❯%f%b "

@@ -89,15 +89,6 @@ hl.env("QT_QPA_PLATFORMTHEME", "kde")
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-hl.window_rule({
-    name  = "hold-power-dialog",
-    match = { class = "^hold_power\\.py$" },
-
-    float        = true,
-    center       = true,
-    pin          = true,
-    stay_focused = true,
-})
 
 -----------------------
 ---- LOOK AND FEEL ----
