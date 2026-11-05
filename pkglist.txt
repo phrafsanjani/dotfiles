@@ -20,7 +20,6 @@ fuse2
 fuzzel
 fzf
 gcc-fortran
-ghostty
 git
 git-filter-repo
 github-cli
@@ -42,6 +41,7 @@ jq
 juliaup
 kdeconnect
 keepassxc
+kitty
 less
 libayatana-appindicator
 linux
@@ -98,6 +98,7 @@ ttf-arphic-uming
 ttf-dejavu
 ttf-hack
 ttf-liberation
+ttf-nerd-fonts-symbols-mono
 ttf-opensans
 unrar
 vazirmatn-fonts
