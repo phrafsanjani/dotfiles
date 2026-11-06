@@ -189,6 +189,23 @@ setup_root_configs() {
     done
 }
 
+enable_pacman_color() {
+    local pacman_conf="/etc/pacman.conf"
+    if [ -f "$pacman_conf" ]; then
+        if grep -q "^#Color" "$pacman_conf"; then
+            echo "Uncommenting 'Color' in $pacman_conf..."
+            sudo sed -i 's/^#Color/Color/' "$pacman_conf"
+        elif grep -q "^Color" "$pacman_conf"; then
+            echo "'Color' is already enabled in $pacman_conf - continuing..."
+        else
+            echo "Adding 'Color' to [options] in $pacman_conf..."
+            sudo sed -i '/^\[options\]/a Color' "$pacman_conf"
+        fi
+    else
+        echo "Warning: $pacman_conf does not exist." >&2
+    fi
+}
+
 setup_config "$HOME/.config/go/env" "go" "env"
 setup_config "$HOME/.config/hypr/hyprland.lua" "hypr" "hyprland.lua"
 setup_config "$HOME/.config/hypr/hypridle.conf" "hypr" "hypridle.conf"
@@ -210,3 +227,5 @@ setup_config "$HOME/.config/Code/User/settings.json" "." "code-settings.json"
 setup_config "$HOME/.config/fontconfig/fonts.conf" "." "fonts.conf"
 setup_root_configs "/etc/ssh/sshd_config.d" "sshd_config"
 setup_root_config "/etc/tsocks.conf" "." "tsocks.conf"
+
+enable_pacman_color
