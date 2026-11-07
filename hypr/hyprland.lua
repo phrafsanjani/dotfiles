@@ -294,6 +294,9 @@ hl.bind(mainMod .. " + L",      hl.dsp.layout("move +col"))
 hl.bind(mainMod .. " + period", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + comma",  hl.dsp.layout("swapcol l"))
 
+-- Semi-Space
+hl.bind("SHIFT + space", hl.dsp.exec_cmd("sh -c 'old=$(wl-paste 2>/dev/null); printf \"\\u200c\" | wl-copy && wtype -M ctrl -k v -m ctrl; sleep 0.1; [ -n \"$old\" ] && echo -n \"$old\" | wl-copy'"))
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do

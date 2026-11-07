@@ -107,6 +107,7 @@ visual-studio-code-bin
 vulkan-intel
 wget
 wl-clipboard
+wtype
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xorg-xwayland
