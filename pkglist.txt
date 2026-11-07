@@ -32,6 +32,7 @@ gvfs-mtp
 hypridle
 hyprland
 hyprlock
+hyprpolkitagent
 imagemagick
 img2pdf
 imv
