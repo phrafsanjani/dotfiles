@@ -150,20 +150,24 @@ hdd-sync() {
         done
 
         # ---------------------------------------------------------------------
-        # 4. PERSONAL GISTS
+        # 3. PERSONAL GISTS
         # ---------------------------------------------------------------------
         echo "\n📝 3. Fetching personal Gists..."
-        gists=$(gh api gists --paginate --jq '.[].id')
+        gists=$(gh gist list --limit 1000 --json id --jq '.[].id')
 
-        for gist in ${(f)gists}; do
-            if [ -d "gists/$gist/.git" ]; then
-                echo "  🔄 Updating gist: gists/$gist"
-                (cd "gists/$gist" && git fetch --all --prune && git pull)
-            else
-                echo "  📥 Cloning gist: gists/$gist"
-                gh gist clone "$gist" "gists/$gist"
-            fi
-        done
+        if [ $? -ne 0 ]; then
+            echo "  ❌ Error: Failed to fetch gists. Please check your GitHub authentication."
+        else
+            for gist in ${(f)gists}; do
+                if [ -d "gists/$gist/.git" ]; then
+                    echo "  🔄 Updating gist: gists/$gist"
+                    (cd "gists/$gist" && git fetch --all --prune && git pull)
+                else
+                    echo "  📥 Cloning gist: gists/$gist"
+                    gh gist clone "$gist" "gists/$gist"
+                fi
+            done
+        fi
 
         echo "\n🎉 All assets synced successfully inside: $BACKUP_DIR"
 
