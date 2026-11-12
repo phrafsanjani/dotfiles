@@ -1,0 +1,2 @@
+cmd=/usr/share/org.freedesktop.FileManager1.common/yazi-wrapper.sh
+TERMCMD=kitty
